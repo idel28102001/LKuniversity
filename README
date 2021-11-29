@@ -7,7 +7,8 @@ https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldm
 6. Done.
 
 p.s Also you can edit our Themes, icons, colors and messages if you want to. First of all you'll need to open the code source and change thing you want. Hexidemical and RGB colors
-doesn't work on that code, so use simple words for colors.
+doesn't work on that code, so use simple words for colors. To change the background image, in the Main Page code, look for a variable with a link to
+the current image (themePage) and change the link to the image link of another from the Internet. With Icons (smallIcon) the same situation, but change both in the Main Page and in the Admin.
 
 
 1. Сначала вам нужно скачать плагин tampermonkey на ваш браузер. Ссылка на скачивание ниже.
@@ -19,4 +20,5 @@ https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldm
 6. Готово.
 
 p.s Так же вы можете менять Фоны, иконки, цвета и сообщения, если захотите. Первым делом вам нужно будет открыть исходный код и менять те места, что вам потребуются. 
-16-ричный и RGB цвета не принимаются. Используйте слова как заменители цвета.
+16-ричный и RGB цвета не принимаются. Используйте слова как заменители цвета. Чтобы изменить фоновое изображение, в коде Main Page ищем переменную с ссылкой на 
+текущее изображение(themePage) и меняем ссылку на ссылку изображения другого из интернета. С Иконками(smallIcon) та же ситуация, но менять и в Main Page и в Admin.
