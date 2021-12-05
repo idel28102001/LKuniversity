@@ -2,18 +2,114 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  try to take over the world!
 // @author       You
-// @match        https://lk.neural-university.ru/admin/app/homeworkresult/list
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
-// @include      https://lk.neural-university.ru/admin/*
+// @include      https://lk.neural-university.ru/*
+// @include        https://chat.neural-university.ru/*
 // @grant        none
 // @grant          GM_addStyle
 // @run-at document-end
 // ==/UserScript==
 
 (function() {
+
+
+
+    const btnRed = 'red';
+    const btnRedH = 'Brown';
+    const textColor = 'white';
+
+    const btnBlue = 'CornflowerBlue';
+    const btnBlueH = 'Blue';
+
+    const btnRegul = 'dimgrey';
+    const regBlack = 'Black';
+    const btnRegulH = 'grey';
+    const dimGray = 'dimgrey';
+    const anotherGrey = 'darkgrey';
+
+    const btnGreen = 'Lightgreen';
+    const btnOrange = 'orange';
+    const btnsomeRed = 'Crimson';
+    const btnPurple = 'DarkOrchid';
+
+
+    const smallIcon = 'https://lh3.google.com/u/0/d/1bk9O_nTyynwDA-gaafz-tox-FT8F2CNx=w1920-h947-iv1';
+    const themePage = 'https://d1lss44hh2trtw.cloudfront.net/assets/article/2021/09/09/spider-man-2-will-pit-miles-peter-against-venom-on-ps5-in-2023_feature.jpg';
+
+
+    let regularText = `Задание принято. Все задачи выполнены верно. Жду следующих работ. Успехов.)`;
+    const extraMess = `Задание необходимо доработать.`;
+    const dictTopics = {1:'Тема зачтена. Интересная тема для выбора, жду следующего шага. Успехов.)',
+                       2: 'База зачтена. Всё хорошо, жду от вас 3-его шага. Успехов.)',
+                       3: 'Парсинг засчитываю. Хорошо поработали, жду от вас хорошего прототипа нейронки. Успехов.)',
+                       4: 'Хорошая точность, засчитываю прототип. Жду итогового результата по нейронке. Успехов.)',
+                       5: 'Финальная нейронка впечатляет. Жду от вас презентации. Успехов.)',
+                       6: 'Замечательная презентация - засчитываю. Жду вас на защите и экзамене. Успехов.)'};
+    const videoMessage = `Задание принято, разбор скоро будет.)`
+    let resText;
+
+
+
+    function GM_addStyle(css) {
+  const style = document.getElementById("GM_addStyleBy8626") || (function() {
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.id = "GM_addStyleBy8626";
+    document.head.appendChild(style);
+    return style;
+  })();
+  const sheet = style.sheet;
+  sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
+};
+    const paramsString = window.location.pathname
+    const currLinkLocation = window.location.origin
+
+
+
+
+
+    if (paramsString === '/admin/app/user/join_to_rc_room') {
+
+
+        //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+                //////////////////////////////////
+   const currBtn = document.querySelector('#join_to_chat_room_form_submit');
+    currBtn.classList.add('currBtn', 'btn', 'btn-sm');
+
+    const currInp = document.querySelector('#join_to_chat_room_form_roomName');
+    currInp.placeholder = 'Введите комнату';
+    currInp.classList.add('currInp');
+
+    GM_addStyle(`.currInp {
+    font-size: 30px;
+    outline: none;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+                }`);
+        GM_addStyle(`.currBtn {
+    font-size: 20px;
+    outline: none;
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    background-color: ${btnBlue};
+                }`);
+
+
+    } else if (paramsString.includes('/admin')) {
+
+
+
     const currLink = document.querySelector('.select2-choice');
 const currSelect = document.querySelector('select');
     const currNum = document.querySelectorAll("input.form-control");
@@ -42,43 +138,11 @@ const currSelect = document.querySelector('select');
     };
     };
 
-    const btnRed = 'red';
-    const btnRedH = 'Brown';
-    const textColor = 'white';
-
-    const btnBlue = 'CornflowerBlue';
-    const btnBlueH = 'Blue';
-
-    const btnRegul = 'dimgrey';
-    const regBlack = 'Black';
-    const btnRegulH = 'grey';
-
-    const smallIcon = 'https://lh3.google.com/u/0/d/1bk9O_nTyynwDA-gaafz-tox-FT8F2CNx=w1920-h947-iv1';
-
-    let resText;
-    let regularText = `Добрый день, ${pureName}. Задание принято. Все задачи выполнены верно. Жду следующих работ. Успехов.)`;
-    resText = regularText;
-    const extraMess = `Добрый день, ${pureName}. Задание необходимо доработать.`;
-    const dictTopics = {1:'Тема зачтена. Интересная тема для выбора, жду следующего шага. Успехов.)',
-                       2: 'База зачтена. Всё хорошо, жду от вас 3-его шага. Успехов.)',
-                       3: 'Парсинг засчитываю. Хорошо поработали, жду от вас хорошего прототипа нейронки. Успехов.)',
-                       4: 'Хорошая точность, засчитываю прототип. Жду итогового результата по нейронке. Успехов.)',
-                       5: 'Финальная нейронка впечатляет. Жду от вас презентации. Успехов.)',
-                       6: 'Замечательная презентация - засчитываю. Жду вас на защите и экзамене. Успехов.)'};
-    const videoMessage = `Добрый день, ${pureName}. Задание принято, разбор скоро будет.)`
 
 
-    function GM_addStyle(css) {
-  const style = document.getElementById("GM_addStyleBy8626") || (function() {
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.id = "GM_addStyleBy8626";
-    document.head.appendChild(style);
-    return style;
-  })();
-  const sheet = style.sheet;
-  sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
-};
+
+
+
     const currSome = document.querySelectorAll('.ck-link_selected');
     if (currSome.length) {
     currSome.forEach(e=>{
@@ -107,12 +171,15 @@ const currSelect = document.querySelector('select');
     const videoTextNew = 'Разбор не нужен. Причина:';
     const newVideoBlank = document.createElement('p');
     let resVideoText;
+    function topicFuncs(StudName, num) {
+    return `Добрый день, ${StudName}. ${dictTopics[num]}`;
+    };
 
     const currList = document.querySelectorAll('.control-label');
     const currContList = document.querySelectorAll('.form-group');
     if (currList.length===9) {
     if (currList[7].textContent.trim()==='Ссылка на видеоразбор домашней работы') {
-        resText = videoMessage;
+        resText = topicFuncs(videoMessage,pureName);
         newVideoBlank.classList.add('newVideoBlank');
         currContList[0].append(newVideoBlank);
 
@@ -128,6 +195,8 @@ const currSelect = document.querySelector('select');
     const namesTopicArr = ['гринь александр витальевич','чаевский алексей валерьевич','попов дмитрий владимирович','буньков александр андреевич','миних владимир анатольевич','кротов никита михайлович',
                           'корепин павел александр','еремин евгений александрович','тухватуллин руслан рафикович','ли анатолий  евгеньевич'];
 
+
+    resText = topicFuncs(regularText, pureName);
     if (currLinks) {
         let currLinkText = currLinks.lastChild.href.split('/');
         currLinkText = Number(currLinkText[currLinkText.length-1]);
@@ -150,11 +219,8 @@ const currSelect = document.querySelector('select');
         };
         newVideoBlank.textContent = resVideoText;
         if (notMainTopics.includes(currLinkText) && !namesTopicArr.includes(currNameText)) {
-        resText = regularText;
+        resText = topicFuncs(regularText, pureName);
         };
-    };
-    function topicFuncs(StudName, num) {
-    return `Добрый день, ${StudName}. ${dictTopics[num]}`;
     };
 
     const currTopic = document.querySelectorAll('.sonata-ba-field.sonata-ba-field-standard-natural');
@@ -229,7 +295,7 @@ const currSelect = document.querySelector('select');
     color: ${regBlack}
     }`);
                         GM_addStyle(`input.input::placeholder {
-    color: ${btnRegul}
+    color: ${dimGray}
     }`);
 
                         GM_addStyle(`.form__label.label-left.required {
@@ -252,10 +318,10 @@ const currSelect = document.querySelector('select');
                  background-color: ${btnRegulH};}`);
     GM_addStyle(`body, div, nav, span {
                  color:${textColor} !important;
-                 background-color: ${btnRegul} !important;}`);
+                 background-color: ${dimGray} !important;}`);
     GM_addStyle(` a.logo, th a, .select2-container .select2-choice, .select2-container .select2-choices, .select2-container .select2-choices .select2-search-field input{
                  color:${textColor};
-                 background-color: ${btnRegul} !important;}`);
+                 background-color: ${dimGray} !important;}`);
    GM_addStyle(`td a.sonata-link-identifier, ul li.active {
                  color:${textColor};
                  background-color: transparent;}`);
@@ -417,8 +483,6 @@ const currSelect = document.querySelector('select');
     document.querySelectorAll('td .btn-group .btn.btn-sm').forEach(e=>{
     e.tabIndex = 1000;
     });
-
-    const paramsString = window.location.pathname
     if (paramsString.includes('/admin/app/commenttreehomeworkresult/create')) {
         const currCont = document.querySelector('.content-header');
         if (currCont) {
@@ -438,7 +502,7 @@ const currSelect = document.querySelector('select');
                    const currSomeText = e.currentTarget.firstChild.textContent.trim();
                    if (currSomeText.toLowerCase()!=='сдал') {
                        currNum[1].value=0;
-                   currPreset[2].children[0].textContent = extraMess;
+                   currPreset[2].children[0].textContent = topicFuncs(extraMess, pureName);
                    } else {
                        currNum[1].value = 10;
                        if (currNum[1].max) {
@@ -450,7 +514,730 @@ const currSelect = document.querySelector('select');
                    };
                    };
         });
+};
+
+
+
+    } else if (currLinkLocation==='https://chat.neural-university.ru') {
+
+
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////    //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////    //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+
+         function changeTimezone() {
+
+    let date = new Date();
+    let formatter = new Intl.DateTimeFormat('en-US', { timeZone: "Europe/Moscow", timeStyle: 'short' });
+    let usDate = formatter.format(date);
+    let newDate = Number(usDate.split(':')[0]);
+    newDate = usDate.includes('PM') ? newDate+12 : newDate;
+    return newDate;
+
+}
+
+    let currTime = changeTimezone();
+    let currTimeText = 'Приветсвую';
+    let pureName = 'Коллега';
+    let resText = `${currTimeText}, ${pureName}.`;
+    const timeDict = {0: 'ночь',6: 'утро',12: 'день',18:'вечер'};
+
+    GM_addStyle(`.currBtn:hover {
+    border: 3px solid ${textColor};
+    }`);
+        GM_addStyle(`.currBtn:active {
+    border: 2px solid ${textColor};
+    }`);
+
+        GM_addStyle(`.currBtn {
+    box-sizing: border-box;
+    transition: border 100ms ease;
+    }`);
+
+    GM_addStyle(`button, section, div, span, p, textarea, .rcx-css-dlop43,blockquote .rcx-css-1d5cod7,div .rcx-css-ps0pgs{
+    background-color:${dimGray} !important;
+    color:${textColor} !important;
+    }`);
+        GM_addStyle(`.message:hover {
+    background-color:${btnRegulH} !important;
+    }`);
+        GM_addStyle(`.message.new-day:before, .rcx-tag--secondary {
+    background-color:${regBlack};
+    }`);
+
+    GM_addStyle(`.rcx-sidebar-item__title {
+    color:${anotherGrey} !important;
+    }`);
+
+               GM_addStyle(`.rcx-sidebar-item__icon--highlighted, .rcx-sidebar-item--highlighted {
+    color:${textColor} !important;
+    }`);
+                   GM_addStyle(`.rcx-sidebar-item:active, .rcx-sidebar-item--selected {
+    background-color:${regBlack} !important;
+    }`);
+                   GM_addStyle(`.message a, div .rcx-css-4wru5q a {
+    color: ${btnBlue} !important;
+    }`);
+                       GM_addStyle(`.rc-popover.rc-popover--message-box, .rc-modal-wrapper {
+        background-color: transparent !important;
+    }`);
+                           GM_addStyle(`.BIG {
+        display: inline-block;
+        position:fixed;
+        font-size: 100px;
+        background-color: darkred !important;
+        height: 150px;
+        z-index: 10000;
+        padding: 50px 30px;
+        bottom: 500px;
+        left: 700px;
+        border-radius: 50px;
+    }`);
+                               GM_addStyle(`.currAAA {
+            color: ${btnBlue};
+            font-weight: 900;
+    }`);
+
+                                   GM_addStyle(`.currEClass:hover {
+            border: 2px solid red;
+    }`);
+                                   GM_addStyle(`.currEClass {
+            transition: border 100ms ease-in-out;
+    }`);
+
+
+
+
+
+                                       GM_addStyle(`.startButton,.leftButton,.medButton, .rightButton {
+    font-weight: 600;
+    padding: 6px 11px;
+    margin-right: 22px;
+    border-radius: 5px;
+    font-size: 16px;
+    }`);
+
+                                           GM_addStyle(`.startButton {
+                         background-color: ${btnGreen} !important;
+    }`);
+                                               GM_addStyle(`.leftButton {
+                           background-color: ${btnOrange} !important;
+    }`);
+                                               GM_addStyle(`.medButton {
+                           background-color: ${btnsomeRed} !important;
+    }`);
+                                               GM_addStyle(`.rightButton {
+                          background-color: ${btnPurple} !important;
+    }`);
+
+
+    setTimeout(()=>{
+    const currError = document.querySelector('.toast.toast-error');
+        if (currError) {
+        currError.remove();
+        };
+
+
+    const curr = document.querySelector('.rc-header');
+    }, 1000);
+
+        setInterval(()=>{
+
+   const allButtons = document.querySelectorAll('div.rcx-box.rcx-box--full.rcx-sidebar-item__wrapper div div figure img.rcx-avatar__element.rcx-avatar--x16');
+   const allLinks = document.querySelectorAll('a.rc-box.rcx-box--full.rcx-sidebar-item.rcx-sidebar-item--clickable');
+            const someAd = document.querySelector('audio');
+   const currBell = document.createElement('button');
+
+            document.body.append(currBell);
+
+        currBell.addEventListener('click',()=>{
+        someAd.play();
+        });
+
+        allLinks.forEach(e=>{
+
+        const mainCharacther = e.children[0].children[1].children[1];
+
+        if (mainCharacther.classList.contains('rcx-sidebar-item--highlighted')) {
+            if (!mainCharacther.hasAttribute('data-bell')) {
+                mainCharacther.setAttribute('data-bell', 'false');
+                currBell.click();
+            } else {
+            if (mainCharacther.getAttribute('data-bell')==='true') {
+                mainCharacther.removeAttribute('data-bell');
+            }
+            }
+        };
+
+        const currLab = e.getAttribute('aria-label');
+        const currE = e.children[0].children[0].children[0].children[0].children[0];
+        if (!currE.hasAttribute('data-eventList') && currLab.startsWith('question_')) {
+
+
+
+
+
+            e.addEventListener('click', ()=>{
+            setTimeout(()=>{
+            const extraMesseges = document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4');
+
+
+            const startButton = document.createElement('button');
+                startButton.classList.add('startButton');
+                startButton.setAttribute('data-message', 'welcome');
+                startButton.textContent = 'Приветствие';
+
+            const leftButton = document.createElement('button');
+                leftButton.classList.add('leftButton');
+                leftButton.setAttribute('data-message', 'another');
+                leftButton.textContent = 'Прощание';
+
+            const medButton = document.createElement('button');
+                medButton.classList.add('medButton');
+                medButton.setAttribute('data-message', 'exit-shift');
+                medButton.textContent = 'Конец смены';
+
+            const rightButton = document.createElement('button');
+                rightButton.classList.add('rightButton');
+                rightButton.setAttribute('data-message', 'another-shift');
+                rightButton.textContent = 'Передача смены';
+
+                if (!extraMesseges.classList.contains('hasButtons')) {
+                extraMesseges.append(startButton,leftButton,medButton, rightButton);
+                extraMesseges.children[0].remove();
+                extraMesseges.children[0].remove();
+                extraMesseges.children[0].remove();
+                    };
+                extraMesseges.classList.add('hasButtons');
+
+
+
+
+
+                mainCharacther.setAttribute('data-bell', 'true');
+
+            let currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
+
+                const currA = document.createElement('a');
+                currA.classList.add('rcx-box','rcx-box--full','rcx-box--with-inline-elements', 'rcx-css-1te28na','currAAA');
+                currA.textContent = currElement.textContent;
+                currA.href = document.querySelector('a[rel="noopener noreferrer"]').href;
+                currElement.parentNode.replaceChild(currA,currElement);
+
+
+            startButton.addEventListener('click',addMessage);
+                leftButton.addEventListener('click',addMessage);
+                medButton.addEventListener('click',addMessage);
+                rightButton.addEventListener('click',addMessage);
+
+           const dateDictNew = {'ночь':'Доброй ночи.)','день':'Хорошего дня.)','утро':'Продуктивного утра.)','вечер':'Хорошего вечера'}
+
+            function createMessage(attr,name, date) {
+            switch (attr) {
+                case 'welcome':
+                    if (date==='ночь') {
+                    return `Доброй ночи, ${name}.)`
+                    }
+                    return `Добрый ${date}, ${name}.)`
+                case 'exit-shift':
+                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Надеюсь я смог вам помочь. `;
+                case 'another-shift':
+                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Я передам вас следующему куратору. `;
+                case 'another':
+
+                    return `${name}, надеюсь я смог вам помочь. ${dateDictNew[date]}`;
+            };
+
+            }
+
+            function addMessage(btn){
+            const currButton = btn.currentTarget
+
+            const currAttr = currButton.getAttribute('data-message');
+
+
+            currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
+            if (currElement) {
+            let currText = currElement.textContent;
+                currText = currText.split('#');
+                currText = currText[currText.length-1].split(' ').slice(1).filter(e=>e!=='');
+           switch (currText.length) {
+           case 1:
+               pureName = currText[0];
+               break;
+           case 2:
+           case 3:
+               pureName = currText[1];
+               break;
+       };
+                const currDate = new Date();
+                currTimeText = Object.entries(timeDict)[0][1];
+                for (let [time, text] of Object.entries(timeDict)) {
+                if (currTime> time) {
+                    currTimeText = text;
+                };
+                }
+
+                resText = `${currTimeText}, ${pureName}.)`;
+                const currTextArea = document.querySelector('textarea[aria-label="Сообщение"]');
+                currTextArea.value = createMessage(currAttr,pureName,currTimeText);
+                currTextArea.focus();
+            };
+            }
+
+
+            },300)
+            });
+
+            currE.classList.add('currEClass');
+        currE.setAttribute('data-eventList','true');
+        currE.addEventListener('click', ()=>{
+            setTimeout(()=>{
+        const currBtnForInfo = document.querySelector(`[data-toolbox="0"]`);
+        currBtnForInfo.click();
+                setTimeout(()=>{
+                    const currEdit = document.querySelector(`[aria-label="Редактировать"]`);
+                    currEdit.click();
+                    setTimeout(()=>{
+                    const currCheckbox = document.querySelectorAll(`.rcx-box.rcx-box--full.rcx-css-zqz844`)[1];
+                    currCheckbox.children[1].children[0].click();
+
+                    const currSave = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button.rcx-button-group__item.rcx-css-t3n91h`);
+                    currSave.click();
+
+                    const currBack = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--tiny-square.rcx-button--square.rcx-button--ghost.rcx-button.rcx-css-x7bl3q.rcx-css-1yzvz7u`);
+                    currBack.click();
+                        setTimeout(()=>{
+                        const currMen = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--square.rcx-button.rcx-button-group__item.rcx-css-1k1r0f9`);
+                        currMen.click();
+
+                        setTimeout(()=>{
+                        const currMnaa = document.querySelectorAll(`ol[role="listbox"] li`);
+                            for (let i = 0; i<3; i++) {
+                            currMnaa[i].style.display = 'none';
+                            };
+                            currMnaa[3].children[0].children[1].classList.add('BIG');
+                        }, 200);
+                        }, 200);
+                    }, 200);
+                }, 500);
+            }, 100)
+        })
+        };
+        })
+
+    const curr = document.querySelector('.rc-header');
+    }, 1000);
+
+
+
+
+    } else
+
+
+    //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////    //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////    //////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+    {
+        GM_addStyle(`.currForm {
+    top: 50%;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: steelblue;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    }`);
+
+    GM_addStyle(`.currField{
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }`);
+
+    GM_addStyle(`.currEnter{
+    color: white;
+    background: dimgray;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    transform: scale 100ms ease-in-out;
+    }`);
+        GM_addStyle(`.currEnter:hover{
+    transform: scale(1.02);
+    }`);
+            GM_addStyle(`.currEnter:active{
+    transform: scale(0.98);
+    }`);
+
+
+    const someNew = document.querySelectorAll('.header__submenu');
+    if (someNew.length) {
+    someNew[1].classList.add('menu__custom');
+    for (let i=0; i<someNew[1].children.length; i++ ) {
+        someNew[1].children[+i].classList.add(`flex-ordrer-custom_${i}`)};
     };
+
+    GM_addStyle(`.header__menu {
+                 justify-content: space-around;}`);
+    GM_addStyle(`.text-link {
+                 transition-property: transform, color, background-color;
+                 transition: 0.1s ease-in-out;
+                 cursor: pointer;
+                 padding: 10px 0 !important;
+                 border-radius: 10px;
+                 cursor: pointer;}`);
+    GM_addStyle(`.text-link:hover, .text-link:focus, .customLink:hover, .customLink:focus {
+                 text-decoration: none !important;
+                 background-color: ${btnRegulH};
+                 color: ${textColor};
+                 transform: scale(1.02);}`);
+    GM_addStyle(`a.text-link {
+                 display: inline-block;}`);
+    GM_addStyle(`.text-link:active, .customLink:active {
+                 transform: scale(1,0.98) !important;}`);
+    GM_addStyle(`.header__menu-item:hover .header__submenu {
+                 display: flex;
+                 flex-direction: column;`);
+
+    GM_addStyle(`.flex-ordrer-custom_1 {
+                 order: -1`);
+    GM_addStyle(`.flex-ordrer-custom_2 {
+                 order: -1`);
+    GM_addStyle(`.customLink {
+                 background-color: ${btnRegul};
+    display: inline-block;
+    font-size: 40px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: ${textColor};
+    font-weight: 600;
+}`);
+    GM_addStyle(`div.header__link a.text-link {
+    display:none;
+    }`);
+
+GM_addStyle(`.customImg {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    object-fit: cover;
+    }`);
+
+GM_addStyle(`.header__logo-img {
+   margin: 0;
+   width: unset;
+   min-width: unset;
+    }`);
+
+GM_addStyle(`.header__avatar {
+   display: none;
+    }`);
+
+GM_addStyle(`.header__logo {
+   margin: 0;
+    }`);
+
+    GM_addStyle(`.header {
+    background-color: transparent;
+    }`);
+
+    GM_addStyle(`.customLink-0{
+    order:1;
+        margin: 0;
+    }`);
+        GM_addStyle(`.customLink-0 .customLink{
+    border-radius: 0 10px 10px 0;
+    font-size:20px;
+        max-width: 210px;
+
+    }`);
+        GM_addStyle(`.newMenu {
+margin-right:auto;
+    }`);
+        GM_addStyle(`.customLink-3 {
+        border-radius: 10px 0 0 10px;
+    }`);
+            GM_addStyle(`.customLink-2 {
+            position:relative;
+        border-radius: 0 10px 10px 0;
+        padding: 10px 20px;
+        transition:border-radius 50ms ease-in-out;
+        transition-delay: 200ms;
+    }`);
+                GM_addStyle(`.customLink-2H {
+            transition: border-radius 0.2s ease-in-out;
+            border-radius: 0 10px 0 0;
+    }`);
+                GM_addStyle(`.customLink-1 {
+        border-radius: 10px 0 0 10px;
+    }`);
+        GM_addStyle(`.header {
+        box-shadow: none;
+    }`);
+
+        GM_addStyle(`.header__main {
+        box-shadow: none;
+    }`);
+
+        GM_addStyle(`.header__info {
+        flex: 1;
+    }`);
+            GM_addStyle(`.newBlank {
+            overflow:hidden;
+            height: 0;
+            display:flex;
+            flex-direction:column;
+            position: absolute;
+        width: 100%;
+        left: 0;
+        top: 67px;
+        background-color: ${dimGray};
+        justify-content: center;
+        border-radius: 0 0 10px 10px;
+        transition: height 0.2s ease-in-out;
+        transition-delay: 50ms;
+    }`);
+                GM_addStyle(`.menu__item {
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: 400;
+            width: 100%;
+    }`);
+                    GM_addStyle(`.menu__item:hover {
+            background-color: ${btnRegulH};
+    }`);
+                        GM_addStyle(`.menu__item:last-child {
+            border-radius: 0 0 10px 10px;
+    }`);
+
+
+    const wind = document.querySelector('iframe');
+    if (wind) {
+    wind.style.height = '700px';
+    };
+
+    const logoText = document.querySelector('.header__logo-text');
+    if (logoText) {
+    logoText.style.display = 'None';
+    };
+
+    document.querySelectorAll('.header__menu-item._dropdown').forEach(e=>{
+    e.style.display = 'None';
+    });
+    document.querySelectorAll('.header__menu-item').forEach(e=>{
+    e.style.display = 'None';
+    });
+    function createLink(name, link, someClass=null) {
+    const currLinkNew = document.createElement('a');
+        currLinkNew.href = link;
+        currLinkNew.textContent = name;
+        if (someClass) {
+        currLinkNew.classList.add(someClass);
+        } else {
+        currLinkNew.classList.add('customLink');
+        };
+        return currLinkNew;
+    };
+    const menu = document.querySelector('.header__info');
+    const newMenu = document.createElement('div');
+    newMenu.classList.add('newMenu');
+
+    const optMenu = document.createElement('button');
+    optMenu.classList.add('customLink');
+    optMenu.textContent = 'Ещё';
+    const newBlank = document.createElement('div');
+    newBlank.classList.add('newBlank');
+    optMenu.append(newBlank);
+    newBlank.append(createLink('ВП','/admin/app/helpquestion/list', 'menu__item'),createLink('База','/lessons', 'menu__item'));
+
+
+    const newBlankHeight = `${newBlank.children.length * 0.89}em`;
+            GM_addStyle(`.newBlank-A {
+            height: ${newBlankHeight};
+    }`);
+    optMenu.addEventListener('click', ()=>{
+    optMenu.classList.toggle('customLink-2H');
+    newBlank.classList.toggle('newBlank-A');
+    });
+
+
+
+    newMenu.append(createLink("Админка","/admin/app/homeworkresult/list"),optMenu);
+        if (menu) {
+    menu.append(newMenu,createLink("Чаты","/chats"));
+        }
+
+    if(document.querySelector('.main.inner')){
+    document.querySelector('.main.inner').style.display = 'None';
+    };
+
+    const lowMenu = document.querySelector('.header__menu.inner');
+    if (lowMenu) {
+    lowMenu.style.display = 'none'
+    };
+
+    const links = document.querySelectorAll('.header__info-button');
+    if (links.length) {
+    links[1].style.display = 'None'};
+
+    const currImg = document.createElement('img');
+    currImg.src = themePage;
+    currImg.classList.add('customImg');
+        if (document.querySelector('.app')) {
+    document.querySelector('.app').append(currImg);
+        }
+
+
+    const currBtn = document.querySelector('button.text-link')
+    if (currBtn) {
+    currBtn.classList.add('customLink')};
+
+    document.querySelector('.header__logo-img').src = smallIcon;
+    let i = 0;
+    document.querySelectorAll('.customLink').forEach(e=>{
+        if (i!==0) {
+    e.classList.add(`customLink-${i}`);
+        } else {
+        e.tabIndex = 0;
+        document.querySelector('.header__info-link').classList.add('customLink-0');
+        };
+        i++;
+    });
+
+    GM_addStyle(`
+    .button._full, .button {
+    background-color: ${dimGray};
+     }
+    `);
+       GM_addStyle(`
+    .button:hover {
+    box-shadow: 5px 8px 15px ${textColor};
+     }
+    `);
+           GM_addStyle(`
+    .button:active {
+    background-color: ${dimGray};
+    box-shadow: 1px 4px 15px ${textColor};
+     }
+    `);
+           GM_addStyle(`
+    .tabs._alt .tabs__item.active{
+    border-color: ${dimGray};
+     }
+    `);
+
+           GM_addStyle(`
+    .checkbox__input:checked~.checkbox__border:not([class*="_clear"]){
+    border-color: ${dimGray};
+    box-shadow: 0 0 0 1px ${dimGray};
+     }
+    `);
+        GM_addStyle(`
+    .checkbox__input:checked~.checkbox__border .checkbox__mask, .checkbox__input:checked~.checkbox__mask {
+    border-color: ${dimGray};
+    background-color: ${dimGray};
+    box-shadow: 0 0 0 1px ${dimGray};
+     }
+    `);
+
+    const paramsString = window.location.pathname;
+    if (paramsString==='/notifications' || true) {
+    const currMainPage = document.querySelector('.main.two-column.inner');
+    const currMain = document.querySelector('.main.inner');
+        if (currMainPage || currMain) {
+            if (currMainPage && paramsString.includes('lesson') || paramsString.includes('notifications')) {
+        currMainPage.style.display = 'flex';
+            };
+            if (!currMain.classList.contains('two-column') && !paramsString.includes('lesson')) {
+                currMain.style.display = 'block';
+            };
+              GM_addStyle(`
+              .number {
+              background-color: ${dimGray};
+              }
+              `);
+              GM_addStyle(`
+              .icon.icon-double-arrow {
+              color: ${regBlack};
+              }
+              `);
+                          GM_addStyle(`
+              .info-row:hover {
+              border-bottom-color: ${textColor};
+              }
+              `);
+
+            GM_addStyle(`.form.bg._dropdowned {
+            background-color: ${dimGray}}`);
+
+            GM_addStyle(`a, div, span {
+            color:${textColor} !important;
+            }`);
+             GM_addStyle(`p a.text-link {
+            display:inline-block;
+            }`);
+
+           GM_addStyle(`.pagination__item.active, .notes {
+           background-color: ${dimGray} !important;
+           }`);
+
+           GM_addStyle(`.header__main, .header__main-inner.inner {
+           background-color: transparent !important;
+           }`);
+
+            GM_addStyle(`.main__content {
+                border-radius: 20px;
+    overflow-anchor: none;
+    padding: 10px 20px;
+}`);
+          GM_addStyle(`.blue, .answer__info.bg {
+              background-color: ${btnRegulH} !important;
+    border-radius: 5px;
+}`);
+
+
+          GM_addStyle(`.event._new .event__header, .info-row__count, .red-dot {
+              background-color: ${btnRegulH} !important;
+}`);
+
+                      GM_addStyle(`h3 a.text-link {
+              display:inline-block;
+}`);
+
+
+        };
+
+    };
+
+
+
+    }
 
 
 
