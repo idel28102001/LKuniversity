@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.3.1
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -607,8 +607,8 @@ const currSelect = document.querySelector('select');
         border-radius: 50px;
     }`);
                                GM_addStyle(`.currAAA {
-            color: ${btnBlue};
-            font-weight: 900;
+            color: ${btnBlue} !important;
+            font-weight: 900 !important;
     }`);
 
                                    GM_addStyle(`.currEClass:hover {
@@ -642,19 +642,31 @@ const currSelect = document.querySelector('select');
                                                GM_addStyle(`.rightButton {
                           background-color: ${btnPurple} !important;
     }`);
+        function loopForElement(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(someClass)) {
+                ///////
+                ///////
+                ///////
+                clearInterval(checkExist);
+            }}, 50);};
 
 
-    setTimeout(()=>{
-    const currError = document.querySelector('.toast.toast-error');
-        if (currError) {
-        currError.remove();
-        };
+        function loopForElement1(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(someClass)) {
+                document.querySelector(someClass).remove();
+                clearInterval(checkExist);
+            }}, 50);};
 
 
-    const curr = document.querySelector('.rc-header');
-    }, 1000);
+
+
+
+        loopForElement1('.toast.toast-error');
 
         setInterval(()=>{
+
 
    const allButtons = document.querySelectorAll('div.rcx-box.rcx-box--full.rcx-sidebar-item__wrapper div div figure img.rcx-avatar__element.rcx-avatar--x16');
    const allLinks = document.querySelectorAll('a.rc-box.rcx-box--full.rcx-sidebar-item.rcx-sidebar-item--clickable');
@@ -688,13 +700,10 @@ const currSelect = document.querySelector('select');
 
 
 
-
-
-            e.addEventListener('click', ()=>{
-            setTimeout(()=>{
+        function loopForElement2(someClass='') {
+        const checkExist = setInterval(function() {
+            if (document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4') && document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na') && document.querySelector('a[rel="noopener noreferrer"]')) {
             const extraMesseges = document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4');
-
-
             const startButton = document.createElement('button');
                 startButton.classList.add('startButton');
                 startButton.setAttribute('data-message', 'welcome');
@@ -722,20 +731,18 @@ const currSelect = document.querySelector('select');
                 extraMesseges.children[0].remove();
                     };
                 extraMesseges.classList.add('hasButtons');
-
-
-
-
-
                 mainCharacther.setAttribute('data-bell', 'true');
 
             let currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
-
                 const currA = document.createElement('a');
-                currA.classList.add('rcx-box','rcx-box--full','rcx-box--with-inline-elements', 'rcx-css-1te28na','currAAA');
+                currA.classList.add('currAAA');
                 currA.textContent = currElement.textContent;
                 currA.href = document.querySelector('a[rel="noopener noreferrer"]').href;
-                currElement.parentNode.replaceChild(currA,currElement);
+                currElement.textContent = '';
+                if (currElement.children[0]) {
+               currElement.children[0].remove();
+                }
+                currElement.append(currA);
 
 
             startButton.addEventListener('click',addMessage);
@@ -744,7 +751,6 @@ const currSelect = document.querySelector('select');
                 rightButton.addEventListener('click',addMessage);
 
            const dateDictNew = {'ночь':'Доброй ночи.)','день':'Хорошего дня.)','утро':'Продуктивного утра.)','вечер':'Хорошего вечера'}
-
             function createMessage(attr,name, date) {
             switch (attr) {
                 case 'welcome':
@@ -765,10 +771,7 @@ const currSelect = document.querySelector('select');
 
             function addMessage(btn){
             const currButton = btn.currentTarget
-
             const currAttr = currButton.getAttribute('data-message');
-
-
             currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
             if (currElement) {
             let currText = currElement.textContent;
@@ -799,19 +802,45 @@ const currSelect = document.querySelector('select');
             }
 
 
-            },300)
-            });
+                clearInterval(checkExist);
+            }}, 50);};
+
+
+            e.addEventListener('click', loopForElement2);
 
             currE.classList.add('currEClass');
         currE.setAttribute('data-eventList','true');
         currE.addEventListener('click', ()=>{
-            setTimeout(()=>{
+
+                    function loopForElement7(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(`[data-toolbox="0"]`)) {
         const currBtnForInfo = document.querySelector(`[data-toolbox="0"]`);
         currBtnForInfo.click();
-                setTimeout(()=>{
-                    const currEdit = document.querySelector(`[aria-label="Редактировать"]`);
-                    currEdit.click();
-                    setTimeout(()=>{
+
+                        function loopForElement4(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--square.rcx-button.rcx-button-group__item.rcx-css-1k1r0f9`)) {
+                        const currMen = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--square.rcx-button.rcx-button-group__item.rcx-css-1k1r0f9`);
+                        currMen.click();
+                 function loopForElement3(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(`ol[role="listbox"] li`)) {
+                  const currMnaa = document.querySelectorAll(`ol[role="listbox"] li`);
+                            for (let i = 0; i<3; i++) {
+                            currMnaa[i].style.display = 'none';
+                            };
+                            currMnaa[3].children[0].children[1].classList.add('BIG');
+                clearInterval(checkExist);
+            }}, 50);};
+                            loopForElement3();
+                clearInterval(checkExist);
+            }}, 50);};
+
+
+                        function loopForElement5(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(`.rcx-box.rcx-box--full.rcx-css-zqz844`)) {
                     const currCheckbox = document.querySelectorAll(`.rcx-box.rcx-box--full.rcx-css-zqz844`)[1];
                     currCheckbox.children[1].children[0].click();
 
@@ -820,21 +849,23 @@ const currSelect = document.querySelector('select');
 
                     const currBack = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--tiny-square.rcx-button--square.rcx-button--ghost.rcx-button.rcx-css-x7bl3q.rcx-css-1yzvz7u`);
                     currBack.click();
-                        setTimeout(()=>{
-                        const currMen = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--square.rcx-button.rcx-button-group__item.rcx-css-1k1r0f9`);
-                        currMen.click();
+                        loopForElement4();
+                clearInterval(checkExist);
+            }}, 50);};
 
-                        setTimeout(()=>{
-                        const currMnaa = document.querySelectorAll(`ol[role="listbox"] li`);
-                            for (let i = 0; i<3; i++) {
-                            currMnaa[i].style.display = 'none';
-                            };
-                            currMnaa[3].children[0].children[1].classList.add('BIG');
-                        }, 200);
-                        }, 200);
-                    }, 200);
-                }, 500);
-            }, 100)
+                        function loopForElement6(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(`[aria-label="Редактировать"]`)) {
+                    const currEdit = document.querySelector(`[aria-label="Редактировать"]`);
+                    currEdit.click();
+                    loopForElement5();
+                clearInterval(checkExist);
+            }}, 50);};
+                loopForElement6();
+                clearInterval(checkExist);
+            }}, 50);};
+
+            loopForElement7();
         })
         };
         })
