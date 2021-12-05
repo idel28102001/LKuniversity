@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.2
+// @version      0.1.3.3
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -550,7 +550,6 @@ const currSelect = document.querySelector('select');
 }
 
     let currTime = changeTimezone();
-        console.log(currTime);
     let currTimeText = 'Приветсвую';
     let pureName = 'Коллега';
     let resText = `${currTimeText}, ${pureName}.`;
@@ -847,13 +846,18 @@ currAAA    }`);
         const checkExist = setInterval(function() {
             if (document.querySelector(`.rcx-box.rcx-box--full.rcx-css-zqz844`)) {
                     const currCheckbox = document.querySelectorAll(`.rcx-box.rcx-box--full.rcx-css-zqz844`)[1];
-                    currCheckbox.children[1].children[0].click();
 
+                    if (!currCheckbox.children[1].children[0].children[0].getAttribute('checked')) {
+                    currCheckbox.children[1].children[0].children[0].setAttribute('checked', true);
                     const currSave = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button.rcx-button-group__item.rcx-css-t3n91h`);
                     currSave.click();
+                    }
+
 
                     const currBack = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button--tiny-square.rcx-button--square.rcx-button--ghost.rcx-button.rcx-css-x7bl3q.rcx-css-1yzvz7u`);
                     currBack.click();
+                currBack.click();
+                currBack.click();
                         loopForElement4();
                 clearInterval(checkExist);
             }}, 50);};
