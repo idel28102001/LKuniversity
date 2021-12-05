@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.1
+// @version      0.1.3.2
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -543,13 +543,14 @@ const currSelect = document.querySelector('select');
     let date = new Date();
     let formatter = new Intl.DateTimeFormat('en-US', { timeZone: "Europe/Moscow", timeStyle: 'short' });
     let usDate = formatter.format(date);
-    let newDate = Number(usDate.split(':')[0]);
+    let newDate = Number(usDate.split(':')[0])+1;
     newDate = usDate.includes('PM') ? newDate+12 : newDate;
     return newDate;
 
 }
 
     let currTime = changeTimezone();
+        console.log(currTime);
     let currTimeText = 'Приветсвую';
     let pureName = 'Коллега';
     let resText = `${currTimeText}, ${pureName}.`;
@@ -641,7 +642,7 @@ const currSelect = document.querySelector('select');
     }`);
                                                GM_addStyle(`.rightButton {
                           background-color: ${btnPurple} !important;
-    }`);
+currAAA    }`);
         function loopForElement(someClass) {
         const checkExist = setInterval(function() {
             if (document.querySelector(someClass)) {
@@ -733,16 +734,19 @@ const currSelect = document.querySelector('select');
                 extraMesseges.classList.add('hasButtons');
                 mainCharacther.setAttribute('data-bell', 'true');
 
+                if (document.querySelector('.body.color-primary-font-color a[rel="noopener noreferrer"]').href.includes('lesson')) {
             let currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
                 const currA = document.createElement('a');
                 currA.classList.add('currAAA');
                 currA.textContent = currElement.textContent;
-                currA.href = document.querySelector('a[rel="noopener noreferrer"]').href;
+                currA.href = document.querySelector('.body.color-primary-font-color a[rel="noopener noreferrer"]').href;
                 currElement.textContent = '';
                 if (currElement.children[0]) {
                currElement.children[0].remove();
                 }
                 currElement.append(currA);
+                }
+
 
 
             startButton.addEventListener('click',addMessage);
@@ -772,7 +776,7 @@ const currSelect = document.querySelector('select');
             function addMessage(btn){
             const currButton = btn.currentTarget
             const currAttr = currButton.getAttribute('data-message');
-            currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
+            const currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
             if (currElement) {
             let currText = currElement.textContent;
                 currText = currText.split('#');
@@ -803,6 +807,7 @@ const currSelect = document.querySelector('select');
 
 
                 clearInterval(checkExist);
+
             }}, 50);};
 
 
