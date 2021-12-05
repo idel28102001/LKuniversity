@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.3
+// @version      0.1.3.4
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -733,12 +733,12 @@ currAAA    }`);
                 extraMesseges.classList.add('hasButtons');
                 mainCharacther.setAttribute('data-bell', 'true');
 
-                if (document.querySelector('.body.color-primary-font-color a[rel="noopener noreferrer"]').href.includes('lesson')) {
+                if (document.querySelector('a[rel="noopener noreferrer"]').href.includes('lesson')) {
             let currElement = document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na');
                 const currA = document.createElement('a');
                 currA.classList.add('currAAA');
                 currA.textContent = currElement.textContent;
-                currA.href = document.querySelector('.body.color-primary-font-color a[rel="noopener noreferrer"]').href;
+                currA.href = document.querySelector('a[rel="noopener noreferrer"]').href;
                 currElement.textContent = '';
                 if (currElement.children[0]) {
                currElement.children[0].remove();
@@ -846,9 +846,8 @@ currAAA    }`);
         const checkExist = setInterval(function() {
             if (document.querySelector(`.rcx-box.rcx-box--full.rcx-css-zqz844`)) {
                     const currCheckbox = document.querySelectorAll(`.rcx-box.rcx-box--full.rcx-css-zqz844`)[1];
-
-                    if (!currCheckbox.children[1].children[0].children[0].getAttribute('checked')) {
-                    currCheckbox.children[1].children[0].children[0].setAttribute('checked', true);
+                    if (!currCheckbox.children[1].children[0].children[0].hasAttribute('checked')) {
+                    currCheckbox.children[1].children[0].click();
                     const currSave = document.querySelector(`button[type="button"].rcx-box.rcx-box--full.rcx-box--animated.rcx-button.rcx-button-group__item.rcx-css-t3n91h`);
                     currSave.click();
                     }
