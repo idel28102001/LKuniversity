@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -175,11 +175,16 @@ const currSelect = document.querySelector('select');
     return `Добрый день, ${StudName}. ${dictTopics[num]}`;
     };
 
+            function funcName(StudName, text) {
+    return `Добрый день, ${StudName}. ${text}`;
+    };
+
+    resText = funcName(pureName, regularText);
     const currList = document.querySelectorAll('.control-label');
     const currContList = document.querySelectorAll('.form-group');
     if (currList.length===9) {
     if (currList[7].textContent.trim()==='Ссылка на видеоразбор домашней работы') {
-        resText = topicFuncs(videoMessage,pureName);
+        resText = funcName(pureName, videoMessage);
         newVideoBlank.classList.add('newVideoBlank');
         currContList[0].append(newVideoBlank);
 
@@ -195,8 +200,6 @@ const currSelect = document.querySelector('select');
     const namesTopicArr = ['гринь александр витальевич','чаевский алексей валерьевич','попов дмитрий владимирович','буньков александр андреевич','миних владимир анатольевич','кротов никита михайлович',
                           'корепин павел александр','еремин евгений александрович','тухватуллин руслан рафикович','ли анатолий  евгеньевич'];
 
-
-    resText = topicFuncs(regularText, pureName);
     if (currLinks) {
         let currLinkText = currLinks.lastChild.href.split('/');
         currLinkText = Number(currLinkText[currLinkText.length-1]);
@@ -219,7 +222,7 @@ const currSelect = document.querySelector('select');
         };
         newVideoBlank.textContent = resVideoText;
         if (notMainTopics.includes(currLinkText) && !namesTopicArr.includes(currNameText)) {
-        resText = topicFuncs(regularText, pureName);
+        resText = funcName(pureName,regularText);
         };
     };
 
@@ -236,6 +239,7 @@ const currSelect = document.querySelector('select');
     if (currPreset.length) {
     currPreset[2].children[0].textContent = resText;
     };
+
 
    GM_addStyle(`a {
     color: ${textColor};
@@ -502,7 +506,7 @@ const currSelect = document.querySelector('select');
                    const currSomeText = e.currentTarget.firstChild.textContent.trim();
                    if (currSomeText.toLowerCase()!=='сдал') {
                        currNum[1].value=0;
-                   currPreset[2].children[0].textContent = topicFuncs(extraMess, pureName);
+                   currPreset[2].children[0].textContent = funcName(pureName,extraMess);
                    } else {
                        currNum[1].value = 10;
                        if (currNum[1].max) {
