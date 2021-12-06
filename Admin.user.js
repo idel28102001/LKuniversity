@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.8
+// @version      0.1.3.9
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -193,8 +193,8 @@ const currSelect = document.querySelector('select');
     resText = funcName(pureName, regularText);
     const currList = document.querySelectorAll('.control-label');
     const currContList = document.querySelectorAll('.form-group');
-    if (currList.length===9) {
-    if (currList[7].textContent.trim()==='Ссылка на видеоразбор домашней работы') {
+    if (currList.length===8) {
+    if (currList[6].textContent.trim()==='Ссылка на видеоразбор домашней работы') {
         resText = funcName(pureName, videoMessage);
         newVideoBlank.classList.add('newVideoBlank');
         currContList[0].append(newVideoBlank);
@@ -216,7 +216,7 @@ const currSelect = document.querySelector('select');
         currLinkText = Number(currLinkText[currLinkText.length-1]);
     const currTopText = currLinks.lastChild.textContent.trim().toLowerCase();
         const currNameText = currName[0].textContent.trim().split(':')[1].trim().toLowerCase();
-        if (currList.length===9) {
+        if (currList.length===8) {
         if (namesTopicArr.includes(currNameText)) {
         resVideoText = `${videoReq} Участнику по договору требуется видеоразбор.`;
         } else if (textTopicArr.includes(currLinkText)) {
