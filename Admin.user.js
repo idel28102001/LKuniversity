@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.5
+// @version      0.1.3.6
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -24,7 +24,6 @@
     const btnBlue = 'CornflowerBlue';
     const btnBlueH = 'Blue';
 
-    const btnRegul = 'dimgrey';
     const regBlack = 'Black';
     const btnRegulH = 'grey';
     const dimGray = 'dimgrey';
@@ -662,9 +661,6 @@ currAAA    }`);
             }}, 50);};
 
 
-
-
-
         loopForElement1('.toast.toast-error');
 
         setInterval(()=>{
@@ -886,7 +882,52 @@ currAAA    }`);
 
 
 
-    } else
+    } else if (paramsString.includes('/security/login')) {
+            GM_addStyle(`.customLink {
+                 background-color: ${dimGray};
+    display: inline-block;
+    font-size: 40px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: ${textColor};
+    font-weight: 600;
+}`);
+
+            GM_addStyle(`.customLink:hover, .customLink:focus {
+                 text-decoration: none !important;
+                 background-color: ${btnRegulH};
+                 color: ${textColor};
+                 transform: scale(1.02);}`);
+    GM_addStyle(`.customLink:active {
+                 transform: scale(1,0.98) !important;}`);
+
+
+
+        GM_addStyle(`.customImg {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    object-fit: cover;
+    }`);
+                GM_addStyle(`h1, label, a.link-standard {
+                color: ${textColor};
+    }`);
+
+                        GM_addStyle(`a.link-standard {
+                font-weight: 600;
+    }`);
+
+
+                 const currImg = document.createElement('img');
+        document.querySelector('button.button').classList.add('customLink');
+    currImg.src = themePage;
+    currImg.classList.add('customImg');
+        if (document.querySelector('.app')) {
+    document.querySelector('.app').append(currImg);
+        }
+        } else
 
 
     //////////////////////////////////////////////////////////
@@ -973,7 +1014,7 @@ currAAA    }`);
     GM_addStyle(`.flex-ordrer-custom_2 {
                  order: -1`);
     GM_addStyle(`.customLink {
-                 background-color: ${btnRegul};
+                 background-color: ${dimGray};
     display: inline-block;
     font-size: 40px;
     padding: 10px 40px;
@@ -1162,7 +1203,6 @@ margin-right:auto;
     const currBtn = document.querySelector('button.text-link')
     if (currBtn) {
     currBtn.classList.add('customLink')};
-
     document.querySelector('.header__logo-img').src = smallIcon;
     let i = 0;
     document.querySelectorAll('.customLink').forEach(e=>{
