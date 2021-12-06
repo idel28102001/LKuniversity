@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.12
+// @version      0.1.3.13
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -232,7 +232,7 @@ const currSelect = document.querySelector('select');
                    newVideoBlank.classList.add('newVideoBlank-blue');
 
         } else {
-                   resVideoText = `${videoReq} Урок не числиться в списке текстовых занятий.`;
+                   resVideoText = `${videoReq} Урок не числится в списке текстовых занятий.`;
                    };
 
         };
@@ -772,6 +772,9 @@ currAAA    }`);
                 case 'welcome':
                     if (date==='ночь') {
                     return `Доброй ночи, ${name}.)`
+                    }
+                    if (date==='утро') {
+                    return `Доброго утра, ${name}.)`
                     }
                     return `Добрый ${date}, ${name}.)`
                 case 'exit-shift':
