@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.13
+// @version      0.1.3.14
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -26,7 +26,7 @@
 
     const regBlack = 'Black';
     const btnRegulH = 'grey';
-    const dimGray = 'dimgrey';
+    const dimGray = 'dimgray';
     const anotherGrey = 'darkgrey';
 
     const btnGreen = 'Lightgreen';
@@ -46,7 +46,10 @@
                        3: 'Парсинг засчитываю. Хорошо поработали, жду от вас хорошего прототипа нейронки. Успехов.)',
                        4: 'Хорошая точность, засчитываю прототип. Жду итогового результата по нейронке. Успехов.)',
                        5: 'Финальная нейронка впечатляет. Жду от вас презентации. Успехов.)',
-                       6: 'Замечательная презентация - засчитываю. Жду вас на защите и экзамене. Успехов.)'};
+                       6: 'Замечательная презентация - засчитываю. Жду вас на защите и экзамене. Успехов.)',
+                       7: 'Поздравляю с защитой Вашего проекта!',
+                       8:'Поздравляю с успешной экзаминацией!',
+                       9:'Замечательная интеграция нейронки!',};
     const videoMessage = `Задание принято, разбор скоро будет.)`
     let resText;
 
@@ -209,9 +212,15 @@ const currSelect = document.querySelector('select');
 
     const textTopicArr = [706, 707, 708, 750, 751, 752, 753, 754, 755, 756, 757, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780,
                           781, 782, 783, 784, 785, 786, 787, 788, 822, 823, 824, 825, 826, 827, 828, 829] //Все текстовые занятия
-    const notMainTopics = [8, 9, 10, 11, 12, 13, 14, 15, 119, 120, 121, 122, 152, 153, 154, 155, 156, 157, 158, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175,
-                           176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 729, 733, 734, 735,
-                           736, 737, 739, 740, 741, 791, 792, 793, 794, 798, 800, 802, 804, 805, 808, 830, 833, 836, 838, 842, 843, 845, 847, 848, 849, 851]; // Уроки не из основной программы
+    const notMainTopics = [8, 9, 10, 11, 12, 13, 14, 15, 32, 44, 49, 50, 52, 53, 54, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 79, 80, 81, 82, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+                           100, 101, 102, 103, 111, 112, 113, 114, 115, 116, 119, 120, 121, 122, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 151, 152,
+                           153, 154, 155, 156, 157, 158, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188,
+                           189, 190, 191, 192, 193, 194, 195, 197, 198, 199, 200, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224,
+                           225, 226, 227, 228, 229, 230, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 729, 733, 734,
+                           735, 736, 737, 739, 740, 741, 791, 792, 793, 794, 798, 800, 802, 804, 805, 808, 810, 811, 812, 813, 818, 819, 820, 821, 830, 833, 836, 838, 842, 843, 845, 847, 848,
+                           849, 851]; // Уроки не из основной программы
+
+    const graduateTopics = [238,240,241,242,243,244,245,246,247, 743, 744,745]; // Все дипломные занятия.
 
     const namesTopicArr = ['гринь александр витальевич','чаевский алексей валерьевич','попов дмитрий владимирович','буньков александр андреевич','миних владимир анатольевич','кротов никита михайлович',
                           'корепин павел александр','еремин евгений александрович','тухватуллин руслан рафикович','ли анатолий  евгеньевич'];
@@ -229,6 +238,10 @@ const currSelect = document.querySelector('select');
                    newVideoBlank.classList.add('newVideoBlank-blue');
         } else if (notMainTopics.includes(currLinkText)){
                    resVideoText = `${videoTextNew} Урок не из основной программы.`;
+                   newVideoBlank.classList.add('newVideoBlank-blue');
+
+        }else if (graduateTopics.includes(currLinkText)){
+                   resVideoText = `${videoTextNew} Тематика дипломной работы.`;
                    newVideoBlank.classList.add('newVideoBlank-blue');
 
         } else {
@@ -638,16 +651,22 @@ const currSelect = document.querySelector('select');
 
 
 
-                                       GM_addStyle(`.startButton,.leftButton,.medButton, .rightButton {
+                                       GM_addStyle(`.startButton,.leftButton,.medButton, .rightButton, .buttonTextMenu {
     font-weight: 600;
     padding: 6px 11px;
     margin-right: 22px;
     border-radius: 5px;
     font-size: 16px;
     }`);
+                                       GM_addStyle(`.rc-old .dropzone .dropzone-overlay {
+    z-index: 1;
+    }`);
 
                                            GM_addStyle(`.startButton {
                          background-color: ${btnGreen} !important;
+    }`);
+                                                   GM_addStyle(`.buttonTextMenu {
+                         background-color: ${btnRedH} !important;
     }`);
                                                GM_addStyle(`.leftButton {
                            background-color: ${btnOrange} !important;
@@ -714,28 +733,114 @@ currAAA    }`);
 
 
         function loopForElement2(someClass='') {
+        let forText;
         const checkExist = setInterval(function() {
             if (document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4') && document.querySelector('.rcx-box.rcx-box--full.rcx-box--with-inline-elements.rcx-css-1te28na') && document.querySelector('a[rel="noopener noreferrer"]')) {
-            const extraMesseges = document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4');
+                GM_addStyle(`.buttonTextMenu {
+                    z-index: 1;
+                    right: 30px;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    top: 28px;
+                }`);
+
+             GM_addStyle(`.menuButtonField {
+                    overflow: hidden;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 200px;
+                    background-color: ${btnRedH} !important;
+                    border: 1px solid gold;
+                    border-radius: 10px;
+                    transition-property: height, border;
+                    transition: 1000ms ease-in-out;
+                }`);
+             GM_addStyle(`.fieldButtonText {
+                    background-color: transparent !important;
+                    padding: 5px;
+                    text-align: center;
+                    opacity: 0.7;
+                }`);
+             GM_addStyle(`.fieldButtonText:not(:last-child) {
+                    border-bottom: 1px solid gold;
+                }`);
+             GM_addStyle(`.currFieldTexts {
+                    position: relative !important;
+                }`);
+             GM_addStyle(`.fieldButtonText:hover {
+                    opacity: 1;
+                }`);
+             GM_addStyle(`.menuButtonField-hidden {
+                    height: 0;
+                    border:none;
+                }`);
+
+
+            function createButtonWithText(label, text) {
+
+           const Button1 = document.createElement('button');
+                Button1.classList.add('Button1','buttonText','fieldButtonText');
+                Button1.setAttribute('data-message', 'text');
+                Button1.setAttribute('data-text', text);
+                Button1.textContent = label;
+                return Button1;
+            }
+
+
+
+                const extraMesseges = document.querySelector('div.rcx-box.rcx-box--full.rcx-css-1yimpo4');
             const startButton = document.createElement('button');
-                startButton.classList.add('startButton');
+                startButton.classList.add('startButton','buttonText');
                 startButton.setAttribute('data-message', 'welcome');
                 startButton.textContent = 'Приветствие';
 
             const leftButton = document.createElement('button');
-                leftButton.classList.add('leftButton');
+                leftButton.classList.add('leftButton','buttonText');
                 leftButton.setAttribute('data-message', 'another');
                 leftButton.textContent = 'Прощание';
 
             const medButton = document.createElement('button');
-                medButton.classList.add('medButton');
+                medButton.classList.add('medButton','buttonText');
                 medButton.setAttribute('data-message', 'exit-shift');
                 medButton.textContent = 'Конец смены';
 
             const rightButton = document.createElement('button');
-                rightButton.classList.add('rightButton');
+                rightButton.classList.add('rightButton','buttonText');
                 rightButton.setAttribute('data-message', 'another-shift');
                 rightButton.textContent = 'Передача смены';
+
+                const forTextArray = {'Нет доступа':`нет доступа к Вашему ноутбуку, откройте, пожалуйста, доступ. Вот ссылка на инструкцию по открытию доступа: https://docs.google.com/document/d/1HXxLTORTUy0aacte6jHFpDfbHisoZys-9TJJQcWKHTA/edit?usp=sharing`,
+                                     'Запрос в УЧ':`я сделал запрос в учебную часть по вашему обращению.`,
+                                      'Учебная часть':`по такому вопросу вам нужно обратиться в учебную часть.`};
+                const menuButtonField = document.createElement('div');
+                menuButtonField.classList.add('menuButtonField');
+
+                const menuButton = document.createElement('button');
+                menuButton.classList.add('buttonTextMenu');
+                menuButton.textContent = 'Ещё';
+                menuButtonField.classList.toggle('menuButtonField-hidden', true);
+                menuButton.addEventListener('click', ()=>{
+                menuButtonField.classList.toggle('menuButtonField-hidden');
+                });
+
+
+                for (let [label, text] of Object.entries(forTextArray)) {
+                const currBtn = createButtonWithText(label, text);
+                menuButtonField.append(createButtonWithText(label, text));
+                }
+
+                const currField = document.querySelector('.rcx-box.rcx-box--full.rcx-css-1rdomle');
+                currField.classList.add('currFieldTexts');
+                if (!document.querySelectorAll('.buttonTextMenu').length) {
+                menuButton.append(menuButtonField);
+                currField.append(menuButton);
+                }
 
                 if (!extraMesseges.classList.contains('hasButtons')) {
                 extraMesseges.append(startButton,leftButton,medButton, rightButton);
@@ -760,14 +865,13 @@ currAAA    }`);
                 }
 
 
+            document.querySelectorAll('.buttonText').forEach(e=>{
+            e.addEventListener('click',addMessage);
+            })
 
-            startButton.addEventListener('click',addMessage);
-                leftButton.addEventListener('click',addMessage);
-                medButton.addEventListener('click',addMessage);
-                rightButton.addEventListener('click',addMessage);
-
-           const dateDictNew = {'ночь':'Доброй ночи.)','день':'Хорошего дня.)','утро':'Продуктивного утра.)','вечер':'Хорошего вечера'}
-            function createMessage(attr,name, date) {
+           const dateDictNew = {'ночь':'Доброй ночи.)','день':'Хорошего дня.)','утро':'Продуктивного утра.)','вечер':'Хорошего вечера.)'}
+            function createMessage(attr,name, date, text='') {
+                console.log(text);
             switch (attr) {
                 case 'welcome':
                     if (date==='ночь') {
@@ -782,12 +886,18 @@ currAAA    }`);
                 case 'another-shift':
                     return `${name}, уже ${date} и к сожалению моя смена окончилась. Я передам вас следующему куратору. `;
                 case 'another':
-
                     return `${name}, надеюсь я смог вам помочь. ${dateDictNew[date]}`;
+                case 'text':
+                    return `${name}, ${text}`;
             };
+
+
 
             }
 
+           function createMessageCustom(name, text) {
+                  return `${name}, ${text}`;
+            };
             function addMessage(btn){
             const currButton = btn.currentTarget
             const currAttr = currButton.getAttribute('data-message');
@@ -815,7 +925,13 @@ currAAA    }`);
 
                 resText = `${currTimeText}, ${pureName}.)`;
                 const currTextArea = document.querySelector('textarea[aria-label="Сообщение"]');
+                console.log(currButton);
+                if (!currButton.hasAttribute('data-text')) {
                 currTextArea.value = createMessage(currAttr,pureName,currTimeText);
+            } else {
+                const currRegText = currButton.getAttribute('data-text');
+                currTextArea.value = createMessage(currAttr,pureName,currTimeText, currRegText);
+            }
                 currTextArea.focus();
             };
             }
