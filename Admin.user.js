@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.6
+// @version      0.1.3.7
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -72,15 +72,6 @@
 
     if (paramsString === '/admin/app/user/join_to_rc_room') {
 
-
-        //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
-                //////////////////////////////////
    const currBtn = document.querySelector('#join_to_chat_room_form_submit');
     currBtn.classList.add('currBtn', 'btn', 'btn-sm');
 
@@ -108,6 +99,19 @@
     }
 
     if (paramsString.includes('/admin')) {
+
+
+     const currAnswer = document.querySelector('.form-group.col-md-6.p-l-0');
+        if (currAnswer) {
+        console.log(currAnswer.style.width='100%');
+        }
+
+           const currCheckList = document.querySelectorAll('.form-group.col-md-6.p-r-0');
+          currCheckList.forEach(e=>{
+          if (e.children[0].textContent.trim() === 'Чек-лист проверки') {
+        e.remove();
+       };
+        })
 
 
 
