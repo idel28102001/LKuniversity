@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.9
+// @version      0.1.3.10
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -232,7 +232,7 @@ const currSelect = document.querySelector('select');
 
         };
         newVideoBlank.textContent = resVideoText;
-        if (notMainTopics.includes(currLinkText) && !namesTopicArr.includes(currNameText)) {
+        if ((notMainTopics.includes(currLinkText) || textTopicArr.includes(currLinkText)) && !namesTopicArr.includes(currNameText)) {
         resText = funcName(pureName,regularText);
         };
     };
