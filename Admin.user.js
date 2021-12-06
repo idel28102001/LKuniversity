@@ -572,7 +572,7 @@ const currSelect = document.querySelector('select');
     let date = new Date();
     let formatter = new Intl.DateTimeFormat('en-US', { timeZone: "Europe/Moscow", timeStyle: 'short' });
     let usDate = formatter.format(date);
-    let newDate = Number(usDate.split(':')[0])+1;
+    let newDate = (Number(usDate.split(':')[0])+1) % 12;
     newDate = usDate.includes('PM') ? newDate+12 : newDate;
     return newDate;
 
@@ -871,7 +871,6 @@ currAAA    }`);
 
            const dateDictNew = {'ночь':'Доброй ночи.)','день':'Хорошего дня.)','утро':'Продуктивного утра.)','вечер':'Хорошего вечера.)'}
             function createMessage(attr,name, date, text='') {
-                console.log(text);
             switch (attr) {
                 case 'welcome':
                     if (date==='ночь') {
