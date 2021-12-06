@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.10
+// @version      0.1.3.11
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -100,6 +100,11 @@
     }
 
     if (paramsString.includes('/admin')) {
+
+        GM_addStyle(`.form-actions.stuck{
+        position: static;
+        margin-left: 0;
+        }`)
 
                 GM_addStyle(`.body__scroll {
     overflow-y: scroll;
