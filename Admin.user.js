@@ -728,7 +728,7 @@ currAAA    }`);
 
         const currLab = e.getAttribute('aria-label');
         const currE = e.children[0].children[0].children[0].children[0].children[0];
-        if (!currE.hasAttribute('data-eventList') && currLab.startsWith('question_') || true) {
+        if (!currE.hasAttribute('data-eventList') && currLab.startsWith('question_')) {
 
 
 
