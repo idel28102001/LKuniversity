@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.15
+// @version      0.1.3.16
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -881,9 +881,9 @@ currAAA    }`);
                     }
                     return `Добрый ${date}, ${name}.)`
                 case 'exit-shift':
-                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Надеюсь я смог вам помочь. Досвидания.)`;
+                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Надеюсь я смог вам помочь. До свидания.)`;
                 case 'another-shift':
-                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Я передам вас следующему куратору. Досвидания.)`;
+                    return `${name}, уже ${date} и к сожалению моя смена окончилась. Я передам вас следующему куратору. До свидания.)`;
                 case 'another':
                     return `${name}, надеюсь я смог вам помочь. ${dateDictNew[date]}`;
                 case 'text':
