@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.16
+// @version      0.1.3.17
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -140,6 +140,7 @@ const currSelect = document.querySelector('select');
         };
     };
     let pureName = 'Коллега';
+    let listNames = {'Анатольевна':'Татьяна'};
     const currName = document.querySelectorAll('.control-label');
     const currLinks = document.querySelector('.help-block.sonata-ba-field-help')
     if (currName.length) {
@@ -152,6 +153,9 @@ const currSelect = document.querySelector('select');
            case 2:
            case 3:
                pureName = currN[1];
+               if (listNames.hasOwnProperty(pureName)) {
+               pureName = listNames[pureName];
+               };
                break;
        };
     };
@@ -216,9 +220,9 @@ const currSelect = document.querySelector('select');
                            100, 101, 102, 103, 111, 112, 113, 114, 115, 116, 119, 120, 121, 122, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 151, 152,
                            153, 154, 155, 156, 157, 158, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188,
                            189, 190, 191, 192, 193, 194, 195, 197, 198, 199, 200, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224,
-                           225, 226, 227, 228, 229, 230,439, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 729, 733, 734,
-                           735, 736, 737, 739, 740, 741, 791, 792, 793, 794, 798, 800, 802, 804, 805, 808, 810, 811, 812, 813, 818, 819, 820, 821, 830, 833, 836, 838, 842, 843, 845, 847, 848,
-                           849, 851]; // Уроки не из основной программы
+                           225, 226, 227, 228, 229, 230,435,436,437,438,439,441,442,443,444,445,446,447,448,449,450,451, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 713, 714, 715, 716, 717,
+                           718, 719, 720, 721, 722, 723, 724, 725, 726, 729, 733, 734,735, 736, 737, 739, 740, 741, 791, 792, 793, 794, 798, 800, 802, 804, 805, 808, 810, 811, 812, 813, 818, 819,
+                           820, 821, 830, 833, 836, 838, 842, 843, 845, 847, 848,849, 851]; // Уроки не из основной программы
 
     const graduateTopics = [238,240,241,242,243,244,245,246,247, 743, 744,745]; // Все дипломные занятия.
 
@@ -527,6 +531,7 @@ const currSelect = document.querySelector('select');
     }
     `);
         const currSomeSelect = document.querySelectorAll('.sonata-ba-field.sonata-ba-field-standard-natural');
+
                currSomeSelect[3].addEventListener('mouseout', ()=>{
         const currLinks = document.querySelector('#select2-results-1');
                    if (currLinks.children.length) {
