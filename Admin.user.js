@@ -97,6 +97,9 @@
     border: none;
     background-color: ${btnBlue};
                 }`);
+        GM_addStyle(`.toast {
+        display: none;
+                }`);
 
 
 
@@ -704,7 +707,6 @@ currAAA    }`);
         loopForElement1('.toast.toast-error');
 
         setInterval(()=>{
-            loopForElement1('.toast');
 
 
    const allButtons = document.querySelectorAll('div.rcx-box.rcx-box--full.rcx-sidebar-item__wrapper div div figure img.rcx-avatar__element.rcx-avatar--x16');
