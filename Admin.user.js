@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.17
+// @version      0.1.3.18
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -577,7 +577,7 @@ const currSelect = document.querySelector('select');
     let date = new Date();
     let formatter = new Intl.DateTimeFormat('en-US', { timeZone: "Europe/Moscow", timeStyle: 'short' });
     let usDate = formatter.format(date);
-    let newDate = (Number(usDate.split(':')[0])+1) % 12;
+    let newDate = ((Number(usDate.split(':')[0])) % 12)+1;
     newDate = usDate.includes('PM') ? newDate+12 : newDate;
     return newDate;
 
@@ -734,8 +734,6 @@ currAAA    }`);
         const currLab = e.getAttribute('aria-label');
         const currE = e.children[0].children[0].children[0].children[0].children[0];
         if (!currE.hasAttribute('data-eventList') && currLab.startsWith('question_')) {
-
-
 
         function loopForElement2(someClass='') {
         let forText;
