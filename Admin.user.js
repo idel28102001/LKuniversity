@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.18
+// @version      0.1.3.19
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -701,8 +701,10 @@ currAAA    }`);
 
 
         loopForElement1('.toast.toast-error');
+        loopForElement1('.toast.toast-error');
 
         setInterval(()=>{
+            loopForElement1('.toast');
 
 
    const allButtons = document.querySelectorAll('div.rcx-box.rcx-box--full.rcx-sidebar-item__wrapper div div figure img.rcx-avatar__element.rcx-avatar--x16');
