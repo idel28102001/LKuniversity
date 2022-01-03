@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.20
+// @version      0.1.3.22
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -66,6 +66,11 @@
   const sheet = style.sheet;
   sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 };
+
+            GM_addStyle(`.toast {
+        display: none !important;
+                }`);
+
     const paramsString = window.location.pathname
     const currLinkLocation = window.location.origin
 
@@ -96,9 +101,6 @@
     border-radius: 10px;
     border: none;
     background-color: ${btnBlue};
-                }`);
-        GM_addStyle(`.toast {
-        display: none;
                 }`);
 
 
@@ -143,7 +145,7 @@ const currSelect = document.querySelector('select');
         };
     };
     let pureName = 'Коллега';
-    let listNames = {'Анатольевна':'Татьяна'};
+    let listNames = {'Анатольевна':'Татьяна','Алексеевна':'Анастасия'};
     const currName = document.querySelectorAll('.control-label');
     const currLinks = document.querySelector('.help-block.sonata-ba-field-help')
     if (currName.length) {
@@ -634,14 +636,14 @@ const currSelect = document.querySelector('select');
                            GM_addStyle(`.BIG {
         display: inline-block;
         position:fixed;
-        font-size: 100px;
+        font-size: 20px;
         background-color: darkred !important;
-        height: 150px;
         z-index: 10000;
-        padding: 50px 30px;
-        bottom: 500px;
-        left: 700px;
+        padding: 5px;
+        top: 100px;
+        left: 10px;
         border-radius: 50px;
+        pointer-events: visible !important;
     }`);
                                GM_addStyle(`.currAAA {
             color: ${btnBlue} !important;
@@ -701,10 +703,6 @@ currAAA    }`);
                 document.querySelector(someClass).remove();
                 clearInterval(checkExist);
             }}, 50);};
-
-
-        loopForElement1('.toast.toast-error');
-        loopForElement1('.toast.toast-error');
 
         setInterval(()=>{
 
@@ -974,6 +972,18 @@ currAAA    }`);
                             currMnaa[i].style.display = 'none';
                             };
                             currMnaa[3].children[0].children[1].classList.add('BIG');
+
+                                function loopForElement8(someClass) {
+        const checkExist = setInterval(function() {
+            if (document.querySelector(someClass)) {
+                document.querySelector(someClass).click();
+                clearInterval(checkExist);
+            }}, 50);};
+
+                currMnaa[3].children[0].children[1].addEventListener('mouseover', ()=>{
+                console.log('dasdasdas');
+                    loopForElement8('.rcx-box.rcx-box--full.rcx-box--animated.rcx-button--primary-danger.rcx-button.rcx-button-group__item');
+                });
                 clearInterval(checkExist);
             }}, 50);};
                             loopForElement3();
