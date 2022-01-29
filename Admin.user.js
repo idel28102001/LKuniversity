@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.2.2
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -174,8 +174,10 @@ const currSelect = document.querySelector('select');
     newBtnOpen.classList.add('open-video');
 
     const status = document.querySelectorAll('.control-label')[3];
+    if (status) {
     if (status.textContent.trim().includes('Статус')) {
         insertAfter(newBtnOpen, status);
+    }
     }
 
     let pureName = 'Коллега';
@@ -232,7 +234,7 @@ const currSelect = document.querySelector('select');
         }
      }
     const currMessText = document.querySelectorAll('.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-read-only');
-    if (paramsString.includes('commenttreehomeworkresult')) {
+    if (paramsString.includes('commenttreehomeworkresult') && currMessText[1]) {
         const textSome = currMessText[1].textContent.trim();
         const currElemSomeNice = document.querySelectorAll('.help-block.sonata-ba-field-widget-help');
         const newElemText = document.createElement('span');
