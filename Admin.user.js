@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0
+// @version      0.2.1
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -363,6 +363,7 @@ const currSelect = document.querySelector('select');
         topicText = /Этап № \d/.exec(topicText);
         if (topicText) {
         const currNumber = Number(/\d/.exec(topicText)[0]);
+        newBtnOpen.remove();
         resText = topicFuncs(pureName, currNumber);
         };
     };
