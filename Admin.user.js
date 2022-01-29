@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3.23
+// @version      0.2.0
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -109,6 +109,25 @@
 
     if (paramsString.includes('/admin')) {
 
+                GM_addStyle(`.open-video {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 20px;
+    padding: 5px 20px;
+    background-color: ${btnBlue} !important;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+                }`);
+        GM_addStyle(`.open-video:hover {
+        transform: scale(1.04);
+        }`);
+                GM_addStyle(`.open-video:active {
+        transform: scale(0.98);
+        }`);
+
         GM_addStyle(`.form-actions.stuck{
         position: static;
         margin-left: 0;
@@ -122,7 +141,7 @@
 
      const currAnswer = document.querySelector('.form-group.col-md-6.p-l-0');
         if (currAnswer) {
-        console.log(currAnswer.style.width='100%');
+        currAnswer.style.width='100%';
         }
 
            const currCheckList = document.querySelectorAll('.form-group.col-md-6.p-r-0');
@@ -144,6 +163,21 @@ const currSelect = document.querySelector('select');
         currNum[1].value = currNum[1].max;
         };
     };
+
+        function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+
+    const newBtnOpen = document.createElement('div');
+    newBtnOpen.textContent = 'Открыть разбор';
+    newBtnOpen.classList.add('open-video');
+
+    const status = document.querySelectorAll('.control-label')[3];
+    if (status.textContent.trim().includes('Статус')) {
+        insertAfter(newBtnOpen, status);
+    }
+
     let pureName = 'Коллега';
     let listNames = {'Анатольевна':'Татьяна','Алексеевна':'Анастасия','Муратович':'Александр','Владимирович':'Николай'};
     const currName = document.querySelectorAll('.control-label');
@@ -166,6 +200,53 @@ const currSelect = document.querySelector('select');
     };
     };
 
+           GM_addStyle(`.some-tips {
+                    font-size: 15px;
+    display: inline-block;
+    font-weight: 600;
+    background: purple !important;
+    padding: 5px 20px;
+    border-radius: 20px;
+
+                }`);
+
+     function checkOnVideo(text) {
+         if (text.includes('откр') && text.includes('разбор')) {
+             return true;
+         }
+         if (text.includes('0') && text.includes('балл')) {
+             return true;
+         }
+     }
+
+     function checkName(text) {
+         return (/(ов|вна|вич|вна)$/i.test(text));
+     }
+
+     function elemText(fElem, text) {
+     fElem.classList.add('some-tips');
+     if (fElem.textContent) {
+            fElem.textContent += text;
+        } else {
+            fElem.textContent = `Подсказки:${text}`;
+        }
+     }
+    const currMessText = document.querySelectorAll('.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-read-only');
+    if (paramsString.includes('commenttreehomeworkresult')) {
+        const textSome = currMessText[1].textContent.trim();
+        const currElemSomeNice = document.querySelectorAll('.help-block.sonata-ba-field-widget-help');
+        const newElemText = document.createElement('span');
+        newElemText.textContent = '';
+        insertAfter(newElemText, currElemSomeNice[0]);
+        const newSomeText = ' Возможно участник хочет открыть разбор.';
+        if (checkOnVideo(textSome)) {
+        elemText(newElemText, newSomeText);
+        }
+        if (checkName(pureName)) {
+        elemText(newElemText, ' Возможно у участника неправильно поставлено имя.');
+        };
+    }
+
 
 
 
@@ -183,6 +264,7 @@ const currSelect = document.querySelector('select');
     };
 
 
+
     const currPreset = document.querySelectorAll('.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline');
 
 
@@ -197,6 +279,7 @@ const currSelect = document.querySelector('select');
 
     const videoReq = 'Разбор обязателен. Причина:';
     const videoTextNew = 'Разбор не нужен. Причина:';
+    const openVideo = 'Разбор открываю.)';
     const newVideoBlank = document.createElement('p');
     let resVideoText;
     function topicFuncs(StudName, num) {
@@ -263,6 +346,16 @@ const currSelect = document.querySelector('select');
         resText = funcName(pureName,regularText);
         };
     };
+
+    newBtnOpen.addEventListener('click',()=>{
+    if (currLink) {
+        currSelect.children[2].setAttribute('selected', 'true');
+        currLink.children[0].textContent = 'Сдал';
+        currNum[1].value = 0;
+        currPreset[2].children[0].textContent = funcName(pureName,openVideo);
+    }
+    });
+
 
     const currTopic = document.querySelectorAll('.sonata-ba-field.sonata-ba-field-standard-natural');
     if (currTopic.length) {
@@ -930,7 +1023,6 @@ currAAA    }`);
 
                 resText = `${currTimeText}, ${pureName}.)`;
                 const currTextArea = document.querySelector('textarea[aria-label="Сообщение"]');
-                console.log(currButton);
                 if (!currButton.hasAttribute('data-text')) {
                 currTextArea.value = createMessage(currAttr,pureName,currTimeText);
             } else {
@@ -981,7 +1073,6 @@ currAAA    }`);
             }}, 50);};
 
                 currMnaa[3].children[0].children[1].addEventListener('mouseover', ()=>{
-                console.log('dasdasdas');
                     loopForElement8('.rcx-box.rcx-box--full.rcx-box--animated.rcx-button--primary-danger.rcx-button.rcx-button-group__item');
                 });
                 clearInterval(checkExist);
