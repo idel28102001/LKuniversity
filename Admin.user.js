@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.2.2
+// @version      0.3.0
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -186,6 +186,7 @@ const currSelect = document.querySelector('select');
     const currLinks = document.querySelector('.help-block.sonata-ba-field-help')
     if (currName.length) {
     if (currName[0].textContent.toLowerCase()!=='id') {
+        if (currName[0].textContent.trim().split(':')[1]) {
        const currN = currName[0].textContent.trim().split(':')[1].trim().split(' ').filter(e=>e!=='');
        switch (currN.length) {
            case 1:
@@ -199,7 +200,10 @@ const currSelect = document.querySelector('select');
                };
                break;
        };
+        }
     };
+
+
     };
 
            GM_addStyle(`.some-tips {
@@ -371,7 +375,9 @@ const currSelect = document.querySelector('select');
     };
 
     if (currPreset.length) {
+        if (currPreset[2]) {
     currPreset[2].children[0].textContent = resText;
+        }
     };
 
 
@@ -807,31 +813,135 @@ currAAA    }`);
    const allLinks = document.querySelectorAll('a.rc-box.rcx-box--full.rcx-sidebar-item.rcx-sidebar-item--clickable');
             const someAd = document.querySelector('audio');
    const currBell = document.createElement('button');
+            const newBtnBell = document.createElement('button');
+
+             GM_addStyle(`.new-bell-died {
+             z-index: -1;
+             position: absolute;
+                             }`);
+   const newBell = document.createElement('audio');
+   const sourceBell = document.createElement('source');
+            sourceBell.setAttribute('type', 'audio/mpeg');
+         sourceBell.src = 'https://dc599.4shared.com/img/N6NjiFn8iq/82b4f0d7/dlink__2Fdownload_2FN6NjiFn8iq_2Fdied.mp3_3Fsbsr_3Dada2fd09e989908149e1af016e017792a9d_26bip_3DODEuMTYyLjc1LjQx_26lgfp_3D52_26bip_3DODEuMTYyLjc1LjQx/preview.mp3';
+            newBell.append(sourceBell)
+            document.body.append(newBell);
+            newBell.classList.add('new-bell-died');
+   newBell.setAttribute('preload',"true");
 
             document.body.append(currBell);
+            document.body.append(newBtnBell);
 
         currBell.addEventListener('click',()=>{
         someAd.play();
         });
-
+        newBell.addEventListener('click',()=>{
+            newBell.play();
+        });
         allLinks.forEach(e=>{
 
         const mainCharacther = e.children[0].children[1].children[1];
 
+        let storeL = localStorage.getItem('allDemons');
+        if (storeL) {
+            storeL = JSON.parse(storeL);
+            if (!e.getAttribute('data-demon')) {
+            if (storeL[e.getAttribute('aria-label')]) {
+            e.setAttribute('data-demon', 'demon');
+            e.append(icon(e,true));
+            }
+            else {
+            e.setAttribute('data-demon', 'not-demon');
+            e.append(icon(e,false));
+            }
+            }
+
+        }
+
         if (mainCharacther.classList.contains('rcx-sidebar-item--highlighted')) {
             if (!mainCharacther.hasAttribute('data-bell')) {
                 mainCharacther.setAttribute('data-bell', 'false');
+                if (e.getAttribute('data-demon')==='demon') {
+                    newBell.click();
+                }
+                else {
                 currBell.click();
+                }
             } else {
-            if (mainCharacther.getAttribute('data-bell')==='true') {
+            if (mainCharacther.getAttribute('data-bell')==='true') {;
                 mainCharacther.removeAttribute('data-bell');
             }
             }
         };
+        function icon(someElem, check=false) {
+        const elem = document.createElement('img');
+        elem.classList.add('icon-span-new');
+        elem.src = 'https://lh3.google.com/u/0/d/1rOJB07IL6Apvqs8e_Lm9uBwCCoahrzrM=w1920-h517-iv1';
+            someElem.classList.toggle('icon-span-new-active', check);
+        elem.addEventListener('click', ()=>{
+            if (e.getAttribute('data-demon')==='not-demon') {
+                e.setAttribute('data-demon', 'demon');
+                updateLocal(e, true);
+            }
+            else {
+                updateLocal(e, false);
+                e.setAttribute('data-demon', 'not-demon');
+            }
+        });
+        return elem;
+        }
+
+            function updateLocal(e, check=true) {
+                let storeL = localStorage.getItem('allDemons');
+               if (storeL) {
+                storeL = JSON.parse(storeL);
+                storeL[e.getAttribute('aria-label')] = check;
+                localStorage.setItem('allDemons',JSON.stringify(storeL));
+                }
+                else {
+                const currDict = {};
+                currDict[e.getAttribute('aria-label')] = check;
+                localStorage.setItem('allDemons',JSON.stringify(currDict));
+                }
+            }
 
         const currLab = e.getAttribute('aria-label');
         const currE = e.children[0].children[0].children[0].children[0].children[0];
+
+
+                GM_addStyle(`.icon-span-new {
+                z-index: 10000;
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    right: 80px;
+                    opacity: 0;
+                    transition-property: opacity, transform;
+                    transition-timing-function: ease-in-out;
+                    transition-duration: .2s;
+                }`);
+               GM_addStyle(`.icon-span-new:hover {
+                    transform: scale(1.52, 1.52);
+                }`);
+
+           GM_addStyle(`.icon-span-new:active {
+                    transform: scale(.98, .98);
+                }`);
+              GM_addStyle(`[data-demon="demon"] .icon-span-new{
+                    opacity: 1;
+                }`);
+
+                GM_addStyle(`a.rc-box.rcx-box--full.rcx-sidebar-item.rcx-sidebar-item--clickable:hover .icon-span-new {
+                    opacity: 1;
+                }`);
+
+
+
+
         if (!currE.hasAttribute('data-eventList') && currLab.startsWith('question_')) {
+        if (!e.getAttribute('data-demon')) {
+            e.setAttribute('data-demon', 'not-demon');
+            e.append(icon(e));
+        }
 
         function loopForElement2(someClass='') {
         let forText;
