@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.3.1
+// @version      0.3.2
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -822,7 +822,7 @@ currAAA    }`);
    const newBell = document.createElement('audio');
    const sourceBell = document.createElement('source');
             sourceBell.setAttribute('type', 'audio/mpeg');
-         sourceBell.src = 'https://doc-0c-84-docs.googleusercontent.com/docs/securesc/h7rp2k325ao5vlr3lrvv6arq5p8hj2o4/4k4iprv8fjtjehdb0jfeqp8rflbme7v5/1643749200000/14547114495941982204/14547114495941982204/1_u9OZIFShlqOJJyG19j4lkx022IDyMGZ?e=download&authuser=0';
+         sourceBell.src = 'http://docs.google.com/uc?export=open&id=1_u9OZIFShlqOJJyG19j4lkx022IDyMGZ';
             newBell.append(sourceBell)
             document.body.append(newBell);
             newBell.classList.add('new-bell-died');
