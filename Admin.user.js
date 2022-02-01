@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Admin
 // @namespace    http://tampermonkey.net/
-// @version      0.3.0
+// @version      0.3.1
 // @description  try to take over the world!
 // @author       You
 // @icon         https://www.google.com/s2/favicons?domain=neural-university.ru
@@ -844,6 +844,8 @@ currAAA    }`);
         let storeL = localStorage.getItem('allDemons');
         if (storeL) {
             storeL = JSON.parse(storeL);
+            if (e.getAttribute('aria-label').startsWith('question_')) {
+
             if (!e.getAttribute('data-demon')) {
             if (storeL[e.getAttribute('aria-label')]) {
             e.setAttribute('data-demon', 'demon');
@@ -854,6 +856,8 @@ currAAA    }`);
             e.append(icon(e,false));
             }
             }
+            }
+
 
         }
 
