@@ -66,8 +66,8 @@
   }
 
   GM_addStyle(`.toast {
-        display: none !important;
-                }`);
+          display: none !important;
+                  }`);
 
   const paramsString = window.location.pathname;
   const currLinkLocation = window.location.origin;
@@ -81,50 +81,50 @@
     currInp.classList.add("currInp");
 
     GM_addStyle(`.currInp {
-    font-size: 30px;
-    outline: none;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-                }`);
+      font-size: 30px;
+      outline: none;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+                  }`);
     GM_addStyle(`.currBtn {
-    font-size: 20px;
-    outline: none;
-    padding: 6px;
-    border-radius: 10px;
-    border: none;
-    background-color: ${btnBlue};
-                }`);
+      font-size: 20px;
+      outline: none;
+      padding: 6px;
+      border-radius: 10px;
+      border: none;
+      background-color: ${btnBlue};
+                  }`);
   }
 
   if (paramsString.includes("/admin")) {
     GM_addStyle(`.open-video {
-    font-size: 15px;
-    font-weight: 600;
-    display: inline-block;
-    margin-left: 20px;
-    padding: 5px 20px;
-    background-color: ${btnBlue} !important;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-                }`);
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 20px;
+      padding: 5px 20px;
+      background-color: ${btnBlue} !important;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      transition: transform 0.2s ease-in-out;
+      cursor: pointer;
+                  }`);
     GM_addStyle(`.open-video:hover {
-        transform: scale(1.04);
-        }`);
+          transform: scale(1.04);
+          }`);
     GM_addStyle(`.open-video:active {
-        transform: scale(0.98);
-        }`);
+          transform: scale(0.98);
+          }`);
 
     GM_addStyle(`.form-actions.stuck{
-        position: static;
-        margin-left: 0;
-        }`);
+          position: static;
+          margin-left: 0;
+          }`);
 
     GM_addStyle(`.body__scroll {
-    overflow-y: scroll;
-                }`);
+      overflow-y: scroll;
+                  }`);
     document.body.classList.add("body__scroll");
 
     const currAnswer = document.querySelector(".form-group.col-md-6.p-l-0");
@@ -202,14 +202,14 @@
     }
 
     GM_addStyle(`.some-tips {
-                    font-size: 15px;
-    display: inline-block;
-    font-weight: 600;
-    background: purple !important;
-    padding: 5px 20px;
-    border-radius: 20px;
-
-                }`);
+                      font-size: 15px;
+      display: inline-block;
+      font-weight: 600;
+      background: purple !important;
+      padding: 5px 20px;
+      border-radius: 20px;
+  
+                  }`);
 
     function checkOnVideo(text) {
       if (text.includes("откр") && text.includes("разбор")) {
@@ -410,17 +410,17 @@
     }
 
     GM_addStyle(`a {
-    color: ${textColor};
-    font-weight: 900;
-    }`);
+      color: ${textColor};
+      font-weight: 900;
+      }`);
     GM_addStyle(`.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:focus{
-    color: ${textColor};
-    font-weight: 900;
-    }`);
+      color: ${textColor};
+      font-weight: 900;
+      }`);
     GM_addStyle(`a.btn-link {
-    color: ${textColor};
-    font-weight: 900;
-    }`);
+      color: ${textColor};
+      font-weight: 900;
+      }`);
 
     document.querySelectorAll(`a`).forEach((e) => {
       switch (e.textContent.trim()) {
@@ -433,154 +433,154 @@
     });
 
     GM_addStyle(`.newVideoBlank {
-    background-color: ${btnRed};
-    font-size: 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    padding: 10px 20px;
-    }`);
+      background-color: ${btnRed};
+      font-size: 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      padding: 10px 20px;
+      }`);
     GM_addStyle(`.newVideoBlank-blue {
-    background-color: ${btnBlue};
-    }`);
+      background-color: ${btnBlue};
+      }`);
 
     GM_addStyle(`.newRoom {
-    display: inline-block;
-    background-color: ${btnBlue};
-    padding: 10px;
-    border-radius: 10px;
-    color: ${textColor};
-    margin:10px 0;
-    }`);
+      display: inline-block;
+      background-color: ${btnBlue};
+      padding: 10px;
+      border-radius: 10px;
+      color: ${textColor};
+      margin:10px 0;
+      }`);
 
     GM_addStyle(`.newRoom:hover, .newRoom:focus {
-    background-color: ${btnBlueH};
-    color: ${textColor};
-        transform: scale(1.02);
-    }`);
+      background-color: ${btnBlueH};
+      color: ${textColor};
+          transform: scale(1.02);
+      }`);
     GM_addStyle(`.newRoom:active {
-    transform: scale(0.98);
-    }`);
+      transform: scale(0.98);
+      }`);
 
     GM_addStyle(`input.input {
-    color: ${regBlack}
-    }`);
+      color: ${regBlack}
+      }`);
     GM_addStyle(`input.input::placeholder {
-    color: ${dimGray}
-    }`);
+      color: ${dimGray}
+      }`);
 
     GM_addStyle(`.form__label.label-left.required {
-    display: none;
-    }`);
+      display: none;
+      }`);
 
     GM_addStyle(`.text-red:hover {
-                 background-color: ${btnRedH} !important;}`);
+                   background-color: ${btnRedH} !important;}`);
     GM_addStyle(`.text-red:focus {
-                 background-color: ${btnRedH} !important;}`);
+                   background-color: ${btnRedH} !important;}`);
 
     GM_addStyle(`td {
-                 color:${textColor};
-                 background-color: ${btnRegulH};}`);
+                   color:${textColor};
+                   background-color: ${btnRegulH};}`);
     GM_addStyle(`body, div, nav, span {
-                 color:${textColor} !important;
-                 background-color: ${dimGray} !important;}`);
+                   color:${textColor} !important;
+                   background-color: ${dimGray} !important;}`);
     GM_addStyle(` a.logo, th a, .select2-container .select2-choice, .select2-container .select2-choices, .select2-container .select2-choices .select2-search-field input{
-                 color:${textColor};
-                 background-color: ${dimGray} !important;}`);
+                   color:${textColor};
+                   background-color: ${dimGray} !important;}`);
     GM_addStyle(`td a.sonata-link-identifier, ul li.active {
-                 color:${textColor};
-                 background-color: transparent;}`);
+                   color:${textColor};
+                   background-color: transparent;}`);
     GM_addStyle(`.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-   color:${textColor};
-                 background-color: ${regBlack};
-                 border-color: ${regBlack}}`);
+     color:${textColor};
+                   background-color: ${regBlack};
+                   border-color: ${regBlack}}`);
 
     GM_addStyle(`.customImg {
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    height: 100%;
-    object-fit: cover;
-    }`);
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      height: 100%;
+      object-fit: cover;
+      }`);
 
     GM_addStyle(`.box.box-primary {
-    border: none;
-    }`);
+      border: none;
+      }`);
     GM_addStyle(`.btn-primary {
-    background-color: ${btnRegulH};
-    border-color: ${btnRegulH};
-    }`);
+      background-color: ${btnRegulH};
+      border-color: ${btnRegulH};
+      }`);
     GM_addStyle(`.btn-primary:hover, .btn-primary:focus, .btn-primary:active:hover{
-    background-color: ${regBlack};
-    border-color: ${regBlack};
-    }`);
+      background-color: ${regBlack};
+      border-color: ${regBlack};
+      }`);
 
     GM_addStyle(`.btn-primary:active{
-    opacity: 0.95;
-        background-color: ${regBlack};
-    border-color: ${regBlack};
-    }`);
+      opacity: 0.95;
+          background-color: ${regBlack};
+      border-color: ${regBlack};
+      }`);
 
     GM_addStyle(`.sticky-wrapper, .navbar{
-    border: none;
-    }`);
+      border: none;
+      }`);
 
     GM_addStyle(`.container-fluid{
-    border-radius: 20px;
-    border: 2px solid ${textColor};
-    }`);
+      border-radius: 20px;
+      border: 2px solid ${textColor};
+      }`);
 
     GM_addStyle(`td div.btn-group {
-                 border-radius: 20px;}`);
+                   border-radius: 20px;}`);
 
     GM_addStyle(`td div .btn.btn-sm, .text-red {
-                 font-size: 16px;
-                 transition-property: color, background-color, transform;
-                 color: ${textColor};
-                 border-radius: 20px;
-                 transition: .1s ease-in-out;
-                 font-weight: 600;}`);
+                   font-size: 16px;
+                   transition-property: color, background-color, transform;
+                   color: ${textColor};
+                   border-radius: 20px;
+                   transition: .1s ease-in-out;
+                   font-weight: 600;}`);
 
     GM_addStyle(`td div .btn.btn-sm {
-                 background-color: ${btnBlue} !important;}`);
+                   background-color: ${btnBlue} !important;}`);
     GM_addStyle(`td div .btn.btn-sm.text-red {
-                 color: ${textColor} !important;
-                 background-color: ${btnRed} !important;}`);
+                   color: ${textColor} !important;
+                   background-color: ${btnRed} !important;}`);
 
     GM_addStyle(`.btn.btn-sm:hover {
-                 color:${textColor} !important;
-                 background-color: ${btnBlueH} !important;
-                 transform: scale(1.02)}`);
+                   color:${textColor} !important;
+                   background-color: ${btnBlueH} !important;
+                   transform: scale(1.02)}`);
     GM_addStyle(`.btn.btn-sm:focus {
-                 color:${textColor} !important;
-                 background-color: ${btnBlueH} !important;}`);
+                   color:${textColor} !important;
+                   background-color: ${btnBlueH} !important;}`);
     GM_addStyle(`.btn.btn-sm:active {
-                 opacity: 0.9;
-                 transform:scale(0.96);}`);
+                   opacity: 0.9;
+                   transform:scale(0.96);}`);
 
     GM_addStyle(`td div .btn.btn-sm.text-red:hover {
-                 color:${textColor} !important;
-                 background-color: ${btnRedH} !important;
-                 transform: scale(1.02)}`);
+                   color:${textColor} !important;
+                   background-color: ${btnRedH} !important;
+                   transform: scale(1.02)}`);
     GM_addStyle(`td div .btn.btn-sm.text-red:focus {
-                 color:${textColor} !important;
-                 background-color: ${btnRedH} !important;}`);
+                   color:${textColor} !important;
+                   background-color: ${btnRedH} !important;}`);
     GM_addStyle(`td div .btn.btn-sm.text-red:active {
-                 opacity: 0.9;
-                 transform:scale(0.96);}`);
+                   opacity: 0.9;
+                   transform:scale(0.96);}`);
     GM_addStyle(`.info-box-icon.bg-aqua {
-                 background-color: ${regBlack} !important;}`);
+                   background-color: ${regBlack} !important;}`);
     GM_addStyle(`.sonata-toggle-filter.sonata-ba-action {
-                 color: ${regBlack} !important;}`);
+                   color: ${regBlack} !important;}`);
 
     GM_addStyle(`.customFlex {
-                 display:flex;
-                 justify-content: space-between;}`);
+                   display:flex;
+                   justify-content: space-between;}`);
     GM_addStyle(`th, td {
-                 background-color: ${btnRegulH} !important;}`);
+                   background-color: ${btnRegulH} !important;}`);
     GM_addStyle(`.btn-success {
-                 font-size: 30px;
-    padding: 10px 20px;
-    border-radius: 20px;}`);
+                   font-size: 30px;
+      padding: 10px 20px;
+      border-radius: 20px;}`);
     document.querySelectorAll(".logo")[0].href = "/";
     document.querySelectorAll(".logo")[0].children[0].src = smallIcon;
     document.querySelectorAll(".logo")[0].children[1].remove();
@@ -591,11 +591,11 @@
     const newBtn = document.createElement("btn");
     newBtn.classList.add("btn", "btn-sm");
     GM_addStyle(`btn.btn.btn-sm {
-                 color: ${textColor};
-                 background-color:${btnBlue};
-                 font-weight: 600;
-                 border-radius: 10px;
-                 font-size:16px;}`);
+                   color: ${textColor};
+                   background-color:${btnBlue};
+                   font-weight: 600;
+                   border-radius: 10px;
+                   font-size:16px;}`);
     newBtn.textContent = "Простые домашки";
     newBtn.addEventListener("click", () => {
       currPlace.forEach((e) => {
@@ -608,13 +608,13 @@
     const redBtn = document.createElement("btn");
     redBtn.classList.add("text-red");
     GM_addStyle(`btn.text-red {
-                 color: ${textColor} !important;
-                 border:none;
-                 padding: 7px 10px;
-                 background-color:${btnRed};
-                 font-weight: 600;
-                 border-radius: 10px;
-                 font-size:16px;}`);
+                   color: ${textColor} !important;
+                   border:none;
+                   padding: 7px 10px;
+                   background-color:${btnRed};
+                   font-weight: 600;
+                   border-radius: 10px;
+                   font-size:16px;}`);
     redBtn.textContent = "ВИП домашки";
     redBtn.addEventListener("click", () => {
       currPlace.forEach((e) => {
@@ -654,10 +654,10 @@
         currCont.remove();
       }
       GM_addStyle(`
-    a {
-    color: ${textColor};
-    }
-    `);
+      a {
+      color: ${textColor};
+      }
+      `);
       const currSomeSelect = document.querySelectorAll(
         ".sonata-ba-field.sonata-ba-field-standard-natural"
       );
@@ -719,94 +719,94 @@
     const timeDict = { 0: "ночь", 6: "утро", 12: "день", 18: "вечер" };
 
     GM_addStyle(`.currBtn:hover {
-    border: 3px solid ${textColor};
-    }`);
+      border: 3px solid ${textColor};
+      }`);
     GM_addStyle(`.currBtn:active {
-    border: 2px solid ${textColor};
-    }`);
+      border: 2px solid ${textColor};
+      }`);
 
     GM_addStyle(`.currBtn {
-    box-sizing: border-box;
-    transition: border 100ms ease;
-    }`);
+      box-sizing: border-box;
+      transition: border 100ms ease;
+      }`);
 
     GM_addStyle(`button, section, div, span, p, textarea, .rcx-css-dlop43,blockquote .rcx-css-1d5cod7,div .rcx-css-ps0pgs{
-    background-color:${dimGray} !important;
-    color:${textColor} !important;
-    }`);
+      background-color:${dimGray} !important;
+      color:${textColor} !important;
+      }`);
     GM_addStyle(`.message:hover {
-    background-color:${btnRegulH} !important;
-    }`);
+      background-color:${btnRegulH} !important;
+      }`);
     GM_addStyle(`.message.new-day:before, .rcx-tag--secondary {
-    background-color:${regBlack};
-    }`);
+      background-color:${regBlack};
+      }`);
 
     GM_addStyle(`.rcx-sidebar-item__title {
-    color:${anotherGrey} !important;
-    }`);
+      color:${anotherGrey} !important;
+      }`);
 
     GM_addStyle(`.rcx-sidebar-item__icon--highlighted, .rcx-sidebar-item--highlighted {
-    color:${textColor} !important;
-    }`);
+      color:${textColor} !important;
+      }`);
     GM_addStyle(`.rcx-sidebar-item:active, .rcx-sidebar-item--selected {
-    background-color:${regBlack} !important;
-    }`);
+      background-color:${regBlack} !important;
+      }`);
     GM_addStyle(`.message a, div .rcx-css-4wru5q a {
-    color: ${btnBlue} !important;
-    }`);
+      color: ${btnBlue} !important;
+      }`);
     GM_addStyle(`.rc-popover.rc-popover--message-box, .rc-modal-wrapper {
-        background-color: transparent !important;
-    }`);
+          background-color: transparent !important;
+      }`);
     GM_addStyle(`.BIG {
-        display: inline-block;
-        position:fixed;
-        font-size: 20px;
-        background-color: darkred !important;
-        z-index: 10000;
-        padding: 5px;
-        top: 100px;
-        left: 10px;
-        border-radius: 50px;
-        pointer-events: visible !important;
-    }`);
+          display: inline-block;
+          position:fixed;
+          font-size: 20px;
+          background-color: darkred !important;
+          z-index: 10000;
+          padding: 5px;
+          top: 100px;
+          left: 10px;
+          border-radius: 50px;
+          pointer-events: visible !important;
+      }`);
     GM_addStyle(`.currAAA {
-            color: ${btnBlue} !important;
-            font-weight: 900 !important;
-    }`);
+              color: ${btnBlue} !important;
+              font-weight: 900 !important;
+      }`);
 
     GM_addStyle(`.currEClass:hover {
-            border: 2px solid red;
-    }`);
+              border: 2px solid red;
+      }`);
     GM_addStyle(`.currEClass {
-            transition: border 100ms ease-in-out;
-    }`);
+              transition: border 100ms ease-in-out;
+      }`);
 
     GM_addStyle(`.startButton,.leftButton,.medButton, .rightButton, .buttonTextMenu {
-    font-weight: 600;
-    padding: 6px 11px;
-    margin-right: 22px;
-    border-radius: 5px;
-    font-size: 16px;
-    }`);
+      font-weight: 600;
+      padding: 6px 11px;
+      margin-right: 22px;
+      border-radius: 5px;
+      font-size: 16px;
+      }`);
     GM_addStyle(`.rc-old .dropzone .dropzone-overlay {
-    z-index: 1;
-    }`);
+      z-index: 1;
+      }`);
 
     GM_addStyle(`.startButton {
-                         background-color: ${btnGreen} !important;
-    }`);
+                           background-color: ${btnGreen} !important;
+      }`);
     GM_addStyle(`.buttonTextMenu {
-                         background-color: ${btnRedH} !important;
-    }`);
+                           background-color: ${btnRedH} !important;
+      }`);
     GM_addStyle(`.leftButton {
-                           background-color: ${btnOrange} !important;
-    }`);
+                             background-color: ${btnOrange} !important;
+      }`);
     GM_addStyle(`.medButton {
-                           background-color: ${btnsomeRed} !important;
-    }`);
+                             background-color: ${btnsomeRed} !important;
+      }`);
     GM_addStyle(`.rightButton {
-                          background-color: ${btnPurple} !important;
-currAAA    }`);
+                            background-color: ${btnPurple} !important;
+  currAAA    }`);
     function loopForElement(someClass) {
       const checkExist = setInterval(function () {
         if (document.querySelector(someClass)) {
@@ -879,49 +879,49 @@ currAAA    }`);
                 document.querySelector('a[rel="noopener noreferrer"]')
               ) {
                 GM_addStyle(`.buttonTextMenu {
-                    z-index: 1;
-                    right: 30px;
-                    transform: translateX(-50%);
-                    position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    top: 28px;
-                }`);
+                      z-index: 1;
+                      right: 30px;
+                      transform: translateX(-50%);
+                      position: absolute;
+                      display: flex;
+                      flex-direction: column;
+                      top: 28px;
+                  }`);
 
                 GM_addStyle(`.menuButtonField {
-                    overflow: hidden;
-                    position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    top: 100%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 200px;
-                    background-color: ${btnRedH} !important;
-                    border: 1px solid gold;
-                    border-radius: 10px;
-                    transition-property: height, border;
-                    transition: 1000ms ease-in-out;
-                }`);
+                      overflow: hidden;
+                      position: absolute;
+                      display: flex;
+                      flex-direction: column;
+                      top: 100%;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      width: 200px;
+                      background-color: ${btnRedH} !important;
+                      border: 1px solid gold;
+                      border-radius: 10px;
+                      transition-property: height, border;
+                      transition: 1000ms ease-in-out;
+                  }`);
                 GM_addStyle(`.fieldButtonText {
-                    background-color: transparent !important;
-                    padding: 5px;
-                    text-align: center;
-                    opacity: 0.7;
-                }`);
+                      background-color: transparent !important;
+                      padding: 5px;
+                      text-align: center;
+                      opacity: 0.7;
+                  }`);
                 GM_addStyle(`.fieldButtonText:not(:last-child) {
-                    border-bottom: 1px solid gold;
-                }`);
+                      border-bottom: 1px solid gold;
+                  }`);
                 GM_addStyle(`.currFieldTexts {
-                    position: relative !important;
-                }`);
+                      position: relative !important;
+                  }`);
                 GM_addStyle(`.fieldButtonText:hover {
-                    opacity: 1;
-                }`);
+                      opacity: 1;
+                  }`);
                 GM_addStyle(`.menuButtonField-hidden {
-                    height: 0;
-                    border:none;
-                }`);
+                      height: 0;
+                      border:none;
+                  }`);
 
                 function createButtonWithText(label, text) {
                   const Button1 = document.createElement("button");
@@ -1248,38 +1248,38 @@ currAAA    }`);
     }, 1000);
   } else if (paramsString.includes("/security/login")) {
     GM_addStyle(`.customLink {
-                 background-color: ${dimGray};
-    display: inline-block;
-    font-size: 40px;
-    padding: 10px 40px;
-    border-radius: 10px;
-    margin: 10px 0;
-    color: ${textColor};
-    font-weight: 600;
-}`);
+                   background-color: ${dimGray};
+      display: inline-block;
+      font-size: 40px;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin: 10px 0;
+      color: ${textColor};
+      font-weight: 600;
+  }`);
 
     GM_addStyle(`.customLink:hover, .customLink:focus {
-                 text-decoration: none !important;
-                 background-color: ${btnRegulH};
-                 color: ${textColor};
-                 transform: scale(1.02);}`);
+                   text-decoration: none !important;
+                   background-color: ${btnRegulH};
+                   color: ${textColor};
+                   transform: scale(1.02);}`);
     GM_addStyle(`.customLink:active {
-                 transform: scale(1,0.98) !important;}`);
+                   transform: scale(1,0.98) !important;}`);
 
     GM_addStyle(`.customImg {
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    height: 100%;
-    object-fit: cover;
-    }`);
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      height: 100%;
+      object-fit: cover;
+      }`);
     GM_addStyle(`h1, label, a.link-standard {
-                color: ${textColor};
-    }`);
+                  color: ${textColor};
+      }`);
 
     GM_addStyle(`a.link-standard {
-                font-weight: 600;
-    }`);
+                  font-weight: 600;
+      }`);
 
     const currImg = document.createElement("img");
     document.querySelector("button.button").classList.add("customLink");
@@ -1304,40 +1304,40 @@ currAAA    }`);
   ////////////////////////////////////////////////////
   else {
     GM_addStyle(`.currForm {
-    top: 50%;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: steelblue;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    }`);
+      top: 50%;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: steelblue;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      }`);
 
     GM_addStyle(`.currField{
-        background: white;
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }`);
+          background: white;
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+      }`);
 
     GM_addStyle(`.currEnter{
-    color: white;
-    background: dimgray;
-    padding: 10px 0;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    transform: scale 100ms ease-in-out;
-    }`);
+      color: white;
+      background: dimgray;
+      padding: 10px 0;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      transform: scale 100ms ease-in-out;
+      }`);
     GM_addStyle(`.currEnter:hover{
-    transform: scale(1.02);
-    }`);
+      transform: scale(1.02);
+      }`);
     GM_addStyle(`.currEnter:active{
-    transform: scale(0.98);
-    }`);
+      transform: scale(0.98);
+      }`);
 
     const someNew = document.querySelectorAll(".header__submenu");
     if (someNew.length) {
@@ -1348,139 +1348,139 @@ currAAA    }`);
     }
 
     GM_addStyle(`.header__menu {
-                 justify-content: space-around;}`);
+                   justify-content: space-around;}`);
     GM_addStyle(`.text-link {
-                 transition-property: transform, color, background-color;
-                 transition: 0.1s ease-in-out;
-                 cursor: pointer;
-                 padding: 10px 0 !important;
-                 border-radius: 10px;
-                 cursor: pointer;}`);
+                   transition-property: transform, color, background-color;
+                   transition: 0.1s ease-in-out;
+                   cursor: pointer;
+                   padding: 10px 0 !important;
+                   border-radius: 10px;
+                   cursor: pointer;}`);
     GM_addStyle(`.text-link:hover, .text-link:focus, .customLink:hover, .customLink:focus {
-                 text-decoration: none !important;
-                 background-color: ${btnRegulH};
-                 color: ${textColor};
-                 transform: scale(1.02);}`);
+                   text-decoration: none !important;
+                   background-color: ${btnRegulH};
+                   color: ${textColor};
+                   transform: scale(1.02);}`);
     GM_addStyle(`a.text-link {
-                 display: inline-block;}`);
+                   display: inline-block;}`);
     GM_addStyle(`.text-link:active, .customLink:active {
-                 transform: scale(1,0.98) !important;}`);
+                   transform: scale(1,0.98) !important;}`);
     GM_addStyle(`.header__menu-item:hover .header__submenu {
-                 display: flex;
-                 flex-direction: column;`);
+                   display: flex;
+                   flex-direction: column;`);
 
     GM_addStyle(`.flex-ordrer-custom_1 {
-                 order: -1`);
+                   order: -1`);
     GM_addStyle(`.flex-ordrer-custom_2 {
-                 order: -1`);
+                   order: -1`);
     GM_addStyle(`.customLink {
-                 background-color: ${dimGray};
-    display: inline-block;
-    font-size: 40px;
-    padding: 10px 40px;
-    border-radius: 10px;
-    margin: 10px 0;
-    color: ${textColor};
-    font-weight: 600;
-}`);
+                   background-color: ${dimGray};
+      display: inline-block;
+      font-size: 40px;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin: 10px 0;
+      color: ${textColor};
+      font-weight: 600;
+  }`);
     GM_addStyle(`div.header__link a.text-link {
-    display:none;
-    }`);
+      display:none;
+      }`);
 
     GM_addStyle(`.customImg {
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    height: 100%;
-    object-fit: cover;
-    }`);
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      height: 100%;
+      object-fit: cover;
+      }`);
 
     GM_addStyle(`.header__logo-img {
-   margin: 0;
-   width: unset;
-   min-width: unset;
-    }`);
+     margin: 0;
+     width: unset;
+     min-width: unset;
+      }`);
 
     GM_addStyle(`.header__avatar {
-   display: none;
-    }`);
+     display: none;
+      }`);
 
     GM_addStyle(`.header__logo {
-   margin: 0;
-    }`);
+     margin: 0;
+      }`);
 
     GM_addStyle(`.header {
-    background-color: transparent;
-    }`);
+      background-color: transparent;
+      }`);
 
     GM_addStyle(`.customLink-0{
-    order:1;
-        margin: 0;
-    }`);
+      order:1;
+          margin: 0;
+      }`);
     GM_addStyle(`.customLink-0 .customLink{
-    border-radius: 0 10px 10px 0;
-    font-size:20px;
-        max-width: 210px;
-
-    }`);
+      border-radius: 0 10px 10px 0;
+      font-size:20px;
+          max-width: 210px;
+  
+      }`);
     GM_addStyle(`.newMenu {
-margin-right:auto;
-    }`);
+  margin-right:auto;
+      }`);
     GM_addStyle(`.customLink-3 {
-        border-radius: 10px 0 0 10px;
-    }`);
+          border-radius: 10px 0 0 10px;
+      }`);
     GM_addStyle(`.customLink-2 {
-            position:relative;
-        border-radius: 0 10px 10px 0;
-        padding: 10px 20px;
-        transition:border-radius 50ms ease-in-out;
-        transition-delay: 200ms;
-    }`);
+              position:relative;
+          border-radius: 0 10px 10px 0;
+          padding: 10px 20px;
+          transition:border-radius 50ms ease-in-out;
+          transition-delay: 200ms;
+      }`);
     GM_addStyle(`.customLink-2H {
-            transition: border-radius 0.2s ease-in-out;
-            border-radius: 0 10px 0 0;
-    }`);
+              transition: border-radius 0.2s ease-in-out;
+              border-radius: 0 10px 0 0;
+      }`);
     GM_addStyle(`.customLink-1 {
-        border-radius: 10px 0 0 10px;
-    }`);
+          border-radius: 10px 0 0 10px;
+      }`);
     GM_addStyle(`.header {
-        box-shadow: none;
-    }`);
+          box-shadow: none;
+      }`);
 
     GM_addStyle(`.header__main {
-        box-shadow: none;
-    }`);
+          box-shadow: none;
+      }`);
 
     GM_addStyle(`.header__info {
-        flex: 1;
-    }`);
+          flex: 1;
+      }`);
     GM_addStyle(`.newBlank {
-            overflow:hidden;
-            height: 0;
-            display:flex;
-            flex-direction:column;
-            position: absolute;
-        width: 100%;
-        left: 0;
-        top: 67px;
-        background-color: ${dimGray};
-        justify-content: center;
-        border-radius: 0 0 10px 10px;
-        transition: height 0.2s ease-in-out;
-        transition-delay: 50ms;
-    }`);
+              overflow:hidden;
+              height: 0;
+              display:flex;
+              flex-direction:column;
+              position: absolute;
+          width: 100%;
+          left: 0;
+          top: 67px;
+          background-color: ${dimGray};
+          justify-content: center;
+          border-radius: 0 0 10px 10px;
+          transition: height 0.2s ease-in-out;
+          transition-delay: 50ms;
+      }`);
     GM_addStyle(`.menu__item {
-            padding: 5px 10px;
-            font-size: 20px;
-            font-weight: 400;
-            width: 100%;
-    }`);
+              padding: 5px 10px;
+              font-size: 20px;
+              font-weight: 400;
+              width: 100%;
+      }`);
     GM_addStyle(`.menu__item:hover {
-            background-color: ${btnRegulH};
-    }`);
+              background-color: ${btnRegulH};
+      }`);
     GM_addStyle(`.menu__item:last-child {
-            border-radius: 0 0 10px 10px;
-    }`);
+              border-radius: 0 0 10px 10px;
+      }`);
 
     const wind = document.querySelector("iframe");
     if (wind) {
@@ -1526,8 +1526,8 @@ margin-right:auto;
 
     const newBlankHeight = `${newBlank.children.length * 0.89}em`;
     GM_addStyle(`.newBlank-A {
-            height: ${newBlankHeight};
-    }`);
+              height: ${newBlankHeight};
+      }`);
     optMenu.addEventListener("click", () => {
       optMenu.classList.toggle("customLink-2H");
       newBlank.classList.toggle("newBlank-A");
@@ -1581,40 +1581,40 @@ margin-right:auto;
     });
 
     GM_addStyle(`
-    .button._full, .button {
-    background-color: ${dimGray};
-     }
-    `);
+      .button._full, .button {
+      background-color: ${dimGray};
+       }
+      `);
     GM_addStyle(`
-    .button:hover {
-    box-shadow: 5px 8px 15px ${textColor};
-     }
-    `);
+      .button:hover {
+      box-shadow: 5px 8px 15px ${textColor};
+       }
+      `);
     GM_addStyle(`
-    .button:active {
-    background-color: ${dimGray};
-    box-shadow: 1px 4px 15px ${textColor};
-     }
-    `);
+      .button:active {
+      background-color: ${dimGray};
+      box-shadow: 1px 4px 15px ${textColor};
+       }
+      `);
     GM_addStyle(`
-    .tabs._alt .tabs__item.active{
-    border-color: ${dimGray};
-     }
-    `);
+      .tabs._alt .tabs__item.active{
+      border-color: ${dimGray};
+       }
+      `);
 
     GM_addStyle(`
-    .checkbox__input:checked~.checkbox__border:not([class*="_clear"]){
-    border-color: ${dimGray};
-    box-shadow: 0 0 0 1px ${dimGray};
-     }
-    `);
+      .checkbox__input:checked~.checkbox__border:not([class*="_clear"]){
+      border-color: ${dimGray};
+      box-shadow: 0 0 0 1px ${dimGray};
+       }
+      `);
     GM_addStyle(`
-    .checkbox__input:checked~.checkbox__border .checkbox__mask, .checkbox__input:checked~.checkbox__mask {
-    border-color: ${dimGray};
-    background-color: ${dimGray};
-    box-shadow: 0 0 0 1px ${dimGray};
-     }
-    `);
+      .checkbox__input:checked~.checkbox__border .checkbox__mask, .checkbox__input:checked~.checkbox__mask {
+      border-color: ${dimGray};
+      background-color: ${dimGray};
+      box-shadow: 0 0 0 1px ${dimGray};
+       }
+      `);
 
     const paramsString = window.location.pathname;
     if (paramsString === "/notifications" || true) {
@@ -1634,56 +1634,56 @@ margin-right:auto;
           currMain.style.display = "block";
         }
         GM_addStyle(`
-              .number {
-              background-color: ${dimGray};
-              }
-              `);
+                .number {
+                background-color: ${dimGray};
+                }
+                `);
         GM_addStyle(`
-              .icon.icon-double-arrow {
-              color: ${regBlack};
-              }
-              `);
+                .icon.icon-double-arrow {
+                color: ${regBlack};
+                }
+                `);
         GM_addStyle(`
-              .info-row:hover {
-              border-bottom-color: ${textColor};
-              }
-              `);
+                .info-row:hover {
+                border-bottom-color: ${textColor};
+                }
+                `);
 
         GM_addStyle(`.form.bg._dropdowned {
-            background-color: ${dimGray}}`);
+              background-color: ${dimGray}}`);
 
         GM_addStyle(`a, div, span {
-            color:${textColor} !important;
-            }`);
+              color:${textColor} !important;
+              }`);
         GM_addStyle(`p a.text-link {
-            display:inline-block;
-            }`);
+              display:inline-block;
+              }`);
 
         GM_addStyle(`.pagination__item.active, .notes {
-           background-color: ${dimGray} !important;
-           }`);
+             background-color: ${dimGray} !important;
+             }`);
 
         GM_addStyle(`.header__main, .header__main-inner.inner {
-           background-color: transparent !important;
-           }`);
+             background-color: transparent !important;
+             }`);
 
         GM_addStyle(`.main__content {
-                border-radius: 20px;
-    overflow-anchor: none;
-    padding: 10px 20px;
-}`);
+                  border-radius: 20px;
+      overflow-anchor: none;
+      padding: 10px 20px;
+  }`);
         GM_addStyle(`.blue, .answer__info.bg {
-              background-color: ${btnRegulH} !important;
-    border-radius: 5px;
-}`);
+                background-color: ${btnRegulH} !important;
+      border-radius: 5px;
+  }`);
 
         GM_addStyle(`.event._new .event__header, .info-row__count, .red-dot {
-              background-color: ${btnRegulH} !important;
-}`);
+                background-color: ${btnRegulH} !important;
+  }`);
 
         GM_addStyle(`h3 a.text-link {
-              display:inline-block;
-}`);
+                display:inline-block;
+  }`);
       }
     }
   }
